@@ -1,0 +1,6 @@
+<div class="form-group">
+  <mat-form-field [formGroup]="form" class="fc-input">
+    <textarea [rows]="rows" matInput [required]="required" [formControlName]="fieldName" [placeholder]="label" [readonly]="readonly || null"></textarea>
+    <mat-error i18n>validation.required</mat-error>
+  </mat-form-field>
+</div>

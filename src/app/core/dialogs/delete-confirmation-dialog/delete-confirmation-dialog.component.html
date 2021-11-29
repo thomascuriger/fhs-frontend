@@ -1,0 +1,9 @@
+<h1>{{ 'bills.table.delete_title' | translate }}</h1>
+<p>{{ 'bills.table.delete_text' | translate}}</p>
+
+<button mat-raised-button class="cancel" color="secondary" (click)="close()">
+  {{ 'bills.table.cancel' | translate }}
+</button>
+<button mat-raised-button color="primary" (click)="confirm()">
+  {{ 'bills.table.delete' | translate }}
+</button>

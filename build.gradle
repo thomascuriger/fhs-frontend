@@ -1,0 +1,42 @@
+plugins {
+  id 'com.github.node-gradle.node' version '3.1.1'
+}
+
+node {
+  version = '14.18.1'
+  npmVersion = '6.14.15'
+  download = true
+  // workDir = file("${project.buildDir}/node")
+  // nodeModulesDir = file("${project.projectDir}")
+}
+
+task buildAngular(type: NpmTask, dependsOn: 'npmInstall') {
+  args = ['run', 'build']
+}
+
+task packageWebApp(type: Zip) {
+  dependsOn buildAngular
+
+  archiveBaseName = 'web-app'
+  archiveExtension = 'jar'
+
+  from('dist')
+  destinationDirectory = file("${projectDir}/build_packageWebApp")
+}
+
+configurations {
+  npmResources
+}
+
+configurations.default.extendsFrom(configurations.npmResources)
+
+artifacts {
+  npmResources(packageWebApp.getArchiveFile()) {
+    builtBy packageWebApp
+    type "jar"
+  }
+}
+
+clean {
+  delete packageWebApp.getArchiveFile()
+}

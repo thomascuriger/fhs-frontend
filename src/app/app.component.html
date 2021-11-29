@@ -10,35 +10,50 @@
     </button>
     <span>{{ 'title' | translate }}</span>
     <span class="example-spacer"></span>
-    <button
+    <!-- <button
       mat-icon-button
       class="example-icon favorite-icon"
       aria-label="Example icon-button with more_vert icon"
-      [routerLink]="['/settings']"
     >
-      <mat-icon>settings</mat-icon>
-    </button>
+      <mat-icon>more_vert</mat-icon>
+    </button> -->
   </mat-toolbar>
-  <mat-drawer #drawer opened="false" class="sidenav" mode="side">
-    <div class="logo"></div>
+  <mat-drawer #drawer opened="true" class="sidenav" mode="side">
+    <div class="logo">
+      <a href="https://www.deimos.ch" target="_blank">
+        <img src="../assets/Deimos_Logo_black.svg" alt="Deimos_Logo" />
+      </a>
+    </div>
     <mat-selection-list #menu [multiple]="false">
       <mat-list-option routerLink="/dashboard">
         {{ 'dashboard.title' | translate }}
       </mat-list-option>
-      <mat-list-option routerLink="/settings">
-        {{ 'settings.title' | translate }}
+      <mat-list-option routerLink="/login">
+        {{ 'login.title' | translate }}
       </mat-list-option>
-      <mat-list-option routerLink="/training">
-        {{ 'calendar.title' | translate }}
+      <mat-list-option routerLink="/bills">
+        {{ 'bills.title' | translate }}
+      </mat-list-option>
+      <mat-list-option routerLink="/clients">
+        {{ 'clients.title' | translate }}
+      </mat-list-option>
+      <mat-list-option routerLink="/mandates">
+        {{ 'mandates.title' | translate }}
+      </mat-list-option>
+      <mat-list-option routerLink="/staff">
+        {{ 'staff.title' | translate }}
       </mat-list-option>
     </mat-selection-list>
   </mat-drawer>
-  <div class="content">
-    <div class="inner-content">
+
+  <mat-card class="content">
+    <mat-card-content class="inner-content">
       <router-outlet></router-outlet>
-    </div>
-  </div>
+    </mat-card-content>
+  </mat-card>
   <mat-toolbar color="secondary">
-    <mat-toolbar-row></mat-toolbar-row>
+    <mat-toolbar-row class="footer">
+      <span>API-Version 0.0.1-SNAPSHOT</span>
+    </mat-toolbar-row>
   </mat-toolbar>
 </mat-drawer-container>

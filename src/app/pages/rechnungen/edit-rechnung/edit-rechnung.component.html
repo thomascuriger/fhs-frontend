@@ -1,0 +1,25 @@
+<h1>{{"bills.edit.title" | translate}}</h1>
+
+<ng-container *ngIf="rechnung$ | async as rechnung">
+  <form [formGroup]="form">
+    <rpt-number [form]="form" fieldName="auftragId" label="{{'bills.table.job_nr' | translate}}" [(value)]="rechnung.auftragId"></rpt-number>
+    <rpt-number [form]="form" fieldName="belegNr" label="{{'bills.table.check_nr' | translate}}" [(value)]="rechnung.belegNr"></rpt-number>
+    <rpt-number [form]="form" fieldName="stundenVerrechnet" label="{{'bills.table.hours_calc' | translate}}" [(value)]="rechnung.stundenVerrechnet"></rpt-number>
+    <rpt-number [form]="form" fieldName="stundenNichtVerrechenbar" label="{{'bills.table.hours_not_able' | translate}}" [(value)]="rechnung.stundenNichtVerrechenbar"></rpt-number>
+    <rpt-number [form]="form" fieldName="stundenSpaeterVerrechenbar" label="{{'bills.table.hours_later' | translate}}" [(value)]="rechnung.stundenSpaeterVerrechenbar"></rpt-number>
+    <rpt-number [form]="form" fieldName="kundeId" label="{{'bills.table.client_id' | translate}}" [(value)]="rechnung.kundeId"></rpt-number>
+    <rpt-number [form]="form" fieldName="betragExklMwst" label="{{'bills.table.costs' | translate}}" [(value)]="rechnung.betragExklMwst"></rpt-number>
+    <!-- <rpt-number [form]="form" fieldName="sla_betrieb_lizenz" label="{{'bills.table.sla_licence' | translate}}" [(value)]="rechnung.sla_betrieb_lizenz"></rpt-number> -->
+    <rpt-date [form]="form" fieldName="leistungsperiodeStartdatum" label="{{'bills.table.start_date' | translate}}" [(value)]="rechnung.leistungsperiodeStartdatum"></rpt-date>
+    <rpt-date [form]="form" fieldName="leistungsperiodeEnddatum" label="{{'bills.table.end_date' | translate}}" [(value)]="rechnung.leistungsperiodeEnddatum"></rpt-date>
+    <rpt-date [form]="form" fieldName="rechnungsdatum" label="{{'bills.table.check_date' | translate}}" [(value)]="rechnung.rechnungsdatum"></rpt-date>
+    <rpt-textarea [form]="form" fieldName="bemerkung" label="{{'bills.table.remark' | translate}}" [(value)]="rechnung.bemerkung"></rpt-textarea>
+  </form>
+
+  <button mat-raised-button class="cancel" color="secondary" [routerLink]="'/bills'">
+    {{ 'bills.edit.cancel' | translate }}
+  </button>
+  <button mat-raised-button color="primary" (click)="updateBill(rechnung)">
+    {{ 'bills.edit.save' | translate }}
+  </button>
+</ng-container>

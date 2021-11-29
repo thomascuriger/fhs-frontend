@@ -14,15 +14,22 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@environments/*": ["src/environments/*"],
+      "@app/data/models": ["src/app/data/models/index"],
+      "@app/data/services": ["src/app/data/services/index"],
+      "@app/data/resolvers": ["src/app/data/resolvers/index"],
+      "@app/guards": ["src/app/guards/index"],
+      "@app/services": ["src/app/core/index"],
+      "@shared/*": ["src/app/shared/*"]
+    },
+    "removeComments": true
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
+    "enableI18nLegacyMessageIdFormat": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true

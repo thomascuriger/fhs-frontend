@@ -1,0 +1,6 @@
+<div [formGroup]="form" class="form-group fc-radio">
+  <label>{{label}}</label><br />
+  <mat-radio-group [required]="required" [formControlName]="fieldName">
+    <mat-radio-button *ngFor="let option of options" [value]="option.value">{{option.label}}</mat-radio-button>
+  </mat-radio-group>
+</div>

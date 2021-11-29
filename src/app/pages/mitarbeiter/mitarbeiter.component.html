@@ -1,0 +1,54 @@
+<h1>{{ 'staff.title' | translate }}</h1>
+<a mat-raised-button color="primary" routerLink="add">
+  {{ 'staff.add.title' | translate }}
+</a>
+
+<table
+  mat-table
+  id="mitarbeiterTable"
+  [dataSource]="mitarbeiter"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>{{ 'staff.table.id' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.mitarbeiterId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>{{ 'staff.table.name' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="aktuellesPensum">
+    <th mat-header-cell *matHeaderCellDef>{{ 'staff.table.pensum' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.aktuellesPensum * 100 }} %</td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef>{{ 'staff.table.username' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ahvNr">
+    <th mat-header-cell *matHeaderCellDef>{{ 'staff.table.ahvnr' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.ahvNr }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="icons">
+    <th mat-header-cell *matHeaderCellDef>
+      <!-- {{ 'bills.table.edit' | translate }} -->
+    </th>
+    <td mat-cell *matCellDef="let element; let i = index">
+      <a class="delete-link" (click)="deleteStaffMember(element.mitarbeiterId, i)"
+        ><mat-icon matTooltip="{{ 'bills.table.delete' | translate }}"
+          >delete</mat-icon
+        ></a
+      ><span class="edit-link" [routerLink]="'edit/' + element.mitarbeiterId"
+        ><mat-icon matTooltip="{{ 'bills.table.edit' | translate }}">edit</mat-icon></span
+      >
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

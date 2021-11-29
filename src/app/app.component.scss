@@ -5,21 +5,25 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+
+  .footer {
+    font-size: 13px;
+  }
 }
 
 .content {
   width: 100%;
+  padding: 20px;
   max-width: 1200px;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 128px);
+  min-height: calc(100vh - 208px);
   align-items: flex-start;
   justify-content:flex-start;
 
   .inner-content {
     width: 100%;
-    padding: 10px;
   }
 }
 

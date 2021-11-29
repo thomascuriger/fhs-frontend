@@ -1,43 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { AddTimesComponent } from './pages/training/add-times/add-times.component';
-import { CreateTrainingComponent } from './pages/training/create-training/create-training.component';
-import { TrainingComponent } from './pages/training/training.component';
-import { ViewTimesComponent } from './pages/training/view-times/view-times.component';
-import { ViewTrainingComponent } from './pages/training/view-training/view-training.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
   {
-    path: 'training',
-    children: [
-      {
-        path: ':id',
-        component: TrainingComponent
-      },
-      {
-        path: 'view/:id',
-        component: ViewTrainingComponent
-      },
-      {
-        path: 'create',
-        component: CreateTrainingComponent
-      },
-      {
-        path: 'addtimes/:id',
-        component: AddTimesComponent
-      },
-      {
-        path: 'viewtimes/:id',
-        component: ViewTimesComponent
-      }
-      
-    ]
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
-  { path: 'settings', component: SettingsComponent }
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'bills',
+    loadChildren: () =>
+      import('./pages/rechnungen/rechnungen.module').then(m => m.RechnungenModule)
+  },
+  {
+    path: 'mandates',
+    loadChildren: () =>
+      import('./pages/auftraege/auftraege.module').then(m => m.AuftraegeModule)
+  },
+  {
+    path: 'clients',
+    loadChildren: () => import('./pages/kunden/kunden.module').then(m => m.KundenModule)
+  },
+  {
+    path: 'staff',
+    loadChildren: () =>
+      import('./pages/mitarbeiter/mitarbeiter.module').then(m => m.MitarbeiterModule)
+  },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
