@@ -4,13 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    children: [
-      {
-        path: '',
-        component: DashboardComponent
-      }
-    ]
+    path: '',
+    component: DashboardComponent
   }
 ];
 

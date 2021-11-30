@@ -4,13 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'login',
-    children: [
-      {
-        path: '',
-        component: LoginComponent
-      }
-    ]
+    path: '',
+    component: LoginComponent
   }
 ];
 
