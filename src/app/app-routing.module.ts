@@ -13,23 +13,18 @@ const routes: Routes = [
       import('./pages/login/login.module').then(m => m.LoginModule)
   },
   {
-    path: 'bills',
+    path: 'administration',
     loadChildren: () =>
-      import('./pages/rechnungen/rechnungen.module').then(m => m.RechnungenModule)
+      import('./pages/administration/administration.module').then(m => m.AdministrationModule)
   },
   {
-    path: 'mandates',
-    loadChildren: () =>
-      import('./pages/auftraege/auftraege.module').then(m => m.AuftraegeModule)
+    path: 'performances',
+    loadChildren: () => import('./pages/performances/performances.module').then(m => m.PerformancesModule)
   },
   {
-    path: 'clients',
-    loadChildren: () => import('./pages/kunden/kunden.module').then(m => m.KundenModule)
-  },
-  {
-    path: 'staff',
+    path: 'trainings',
     loadChildren: () =>
-      import('./pages/mitarbeiter/mitarbeiter.module').then(m => m.MitarbeiterModule)
+      import('./pages/trainings/trainings.module').then(m => m.TrainingsModule)
   },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];

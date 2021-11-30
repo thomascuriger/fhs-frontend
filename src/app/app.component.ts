@@ -16,6 +16,6 @@ export class AppComponent {
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     translate.use('de');
   }
-  title = 'arbeitsrapporte-frontend';
+  title = 'fhs-frontend';
   showFiller = true;
 }
