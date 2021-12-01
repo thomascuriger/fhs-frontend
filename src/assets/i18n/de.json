@@ -4,82 +4,16 @@
     "title": "Dashboard"
   },
   "login": {
-    "title": "Login (inaktiv)"
+    "title": "Login?"
   },
-  "bills": {
-    "title": "Rechnungen",
-    "table": {
-      "id": "ID",
-      "check_nr": "Belegnummer",
-      "job_nr": "Auftragsnummer",
-      "start_date": "Startdatum",
-      "end_date": "Enddatum",
-      "hours_calc": "Stunden verrechnet",
-      "hours_not_able": "Stunden nicht verrechenbar",
-      "hours_later": "Stunden später verrechenbar",
-      "check_date": "Rechnungsdatum",
-      "remark": "Bemerkung",
-      "client_id": "Kunden-ID",
-      "costs": "Betrag exkl. MWST",
-      "chf": ".- CHF",
-      "none": " - ",
-      "sla_licence": "SLA Betriebs-Lizenz",
-      "edit": "Bearbeiten",
-      "delete": "Löschen",
-      "cancel": "Abbrechen",
-      "delete_title": "Rechnung löschen",
-      "delete_text": "Wollen Sie diese Rechnung wirklich löschen?"
-    },
-    "add": {
-      "title": "Rechnung hinzufügen",
-      "cancel": "Abbrechen"
-    },
-    "edit": {
-      "title": "Rechnung editieren",
-      "cancel": "Abbrechen",
-      "save": "Änderungen speichern"
-    }
+  "performances": {
+    "title": "Resultate"
   },
-  "clients": {
-    "title": "Kunden",
-    "table": {
-      "id": "ID",
-      "name": "Bezeichnung"
-    },
-    "add": {
-      "title": "Kunde hinzufügen"
-    }
+  "trainings": {
+    "title": "Trainings"
   },
-  "mandates": {
-    "title": "Aufträge",
-    "table": {
-      "id": "ID",
-      "active": "aktiv",
-      "bezeichnung": "Bezeichnung",
-      "client": "Kunde",
-      "jira": "Jira Projekt-ID",
-      "start_date": "Startdatum",
-      "end_date": "Enddatum",
-      "hours_min": "Minimale Stunden",
-      "hours_max": "Maximale Stunden",
-      "hours_est": "Geschätzte Stunden",
-      "hours_contract": "Stunden Vertrag"
-    },
-    "add": {
-      "title": "Auftrag hinzufügen"
-    }
-  },
-  "staff": {
-    "title": "Mitarbeiter",
-    "table": {
-      "id": "ID",
-      "name": "Name",
-      "pensum": "Pensum",
-      "username": "Username",
-      "ahvnr": "AHV-Nummer"
-    },
-    "add": {
-      "title": "Mitarbeiter hinzufügen"
-    }
+  "administration": {
+    "title": "Administration"
   }
+
 }

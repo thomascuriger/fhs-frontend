@@ -1,3 +1,4 @@
+import { RankingModule } from './ranking/ranking.module';
 import { PerformancesComponent } from './performances.component';
 import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -8,13 +9,13 @@ import { PerformancesRoutingModule } from './performances-routing.module';
 
 @NgModule({
   declarations: [
-    PerformancesComponent,
-    RankingComponent
+    PerformancesComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    PerformancesRoutingModule
+    PerformancesRoutingModule,
+    RankingModule
   ]
 })
 export class PerformancesModule { }

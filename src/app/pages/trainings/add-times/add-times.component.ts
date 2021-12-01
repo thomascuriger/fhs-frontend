@@ -10,6 +10,9 @@ export class AddTimesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // show list with all trainings
+
+    // then navigate to add -
   }
 
 }

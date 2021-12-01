@@ -2,11 +2,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ranking',
-  templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.scss']
+  selector: 'app-ranking-card',
+  templateUrl: './ranking-card.component.html',
+  styleUrls: ['./ranking-card.component.scss']
 })
-export class RankingComponent implements OnInit {
+export class RankingCardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute

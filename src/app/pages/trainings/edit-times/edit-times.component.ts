@@ -22,6 +22,7 @@ export class EditTimesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // get id from training
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.get();
@@ -29,14 +30,16 @@ export class EditTimesComponent implements OnInit {
   }
 
   get() {
-    this.kundenDataService.getOne(this.id)
+    // get training from id
+
+    /* this.kundenDataService.getOne(this.id)
       .subscribe(kunde => {
         this.kunde = kunde;
         this.auftraegeService.getAuftraegeByClientId(kunde.kundeId)
           .subscribe(auftraege => {
             this.auftraege = auftraege;
           });
-      });
+      }); */
 
   }
 
