@@ -1,4 +1,7 @@
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Training, Trainingsession } from '@app/data/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-times',
@@ -7,12 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTimesComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup = new FormGroup({});
+
+  trainingSessions: Trainingsession[] = [];
+
+  chosenTraining: Trainingsession = new Trainingsession();
+
+  constructor(
+  ) {}
 
   ngOnInit(): void {
-    // show list with all trainings
-
-    // then navigate to add -
+    const trainingSession = {
+      id: 1,
+      title: 'Trainingstitel',
+      date: new Date(),
+      training: new Training()
+    }
+    this.trainingSessions.push(trainingSession);
   }
 
 }

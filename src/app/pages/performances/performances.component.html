@@ -1,6 +1,11 @@
 <h1>{{"dashboard.title" | translate}}</h1>
 Liste mit allen Trainings inkl. datum
 (gleiche list )
+
+<mat-card *ngFor="let session of trainingsessions" (click)="navigateToRanking(session.id)">
+  {{session.title}}
+</mat-card>
+
 <mat-nav-list>
   <mat-list-item routerLink="ranking/1">
     <p>training 1</p>

@@ -1,1 +1,19 @@
-<p>add-times works!</p>
+<h1>{{ 'trainings.add' | translate }}</h1>
+<form [formGroup]="form">
+  <app-select-training
+    [form]="form"
+    fieldName="chosenTraining"
+    [trainingSessions]="trainingSessions"
+    [(value)]="chosenTraining"
+  ></app-select-training>
+  <br />
+  <div *ngIf="chosenTraining.id">
+    <p>{{ chosenTraining.title }}</p>
+    hier folgt dann das eingeben der Trainingsdaten
+  </div>
+  <br />
+  <button mat-raised-button color="primary">{{ 'trainings.save' | translate }}</button>
+  <br />
+  <br />
+  <button mat-raised-button>{{ 'trainings.cancel' | translate }}</button>
+</form>

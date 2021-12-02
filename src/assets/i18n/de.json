@@ -10,7 +10,10 @@
     "title": "Resultate"
   },
   "trainings": {
-    "title": "Trainings"
+    "title": "Trainings",
+    "add": "Training hinzufügen",
+    "save": "Training speichern",
+    "cancel": "Abbrechen"
   },
   "administration": {
     "title": "Administration"

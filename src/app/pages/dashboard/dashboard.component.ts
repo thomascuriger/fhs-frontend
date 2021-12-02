@@ -1,6 +1,4 @@
-import { MitarbeiterDataService } from '../../data/services/mitarbeiter-data.service';
 import { Component, OnInit } from '@angular/core';
-import { Mitarbeiter } from '@app/data/models';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +10,10 @@ import { Mitarbeiter } from '@app/data/models';
 export class DashboardComponent implements OnInit {
 
 
-  mitarbeiter: Mitarbeiter[] = [];
 
-  constructor(private mitarbeiterDataService: MitarbeiterDataService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.mitarbeiterDataService.getAll().subscribe((mitarbeiter) => {
-      this.mitarbeiter = mitarbeiter;
-    });
+
   }
 }
