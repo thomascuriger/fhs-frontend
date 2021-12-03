@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pa-fhs": {
+      "hosting": {
+        "fhs-frontend": [
+          "pa-fhs"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pa-fhs"
+  }
+}

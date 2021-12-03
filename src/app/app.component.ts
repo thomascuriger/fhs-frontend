@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   param = { value: 'world' };
 
-  constructor(translate: TranslateService) {
+  constructor(translate: TranslateService, private router: Router) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('de');
 
@@ -18,4 +20,5 @@ export class AppComponent {
   }
   title = 'fhs-frontend';
   showFiller = true;
+
 }

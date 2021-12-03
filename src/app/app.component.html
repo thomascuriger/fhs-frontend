@@ -25,19 +25,19 @@
       </a>
     </div>
     <mat-selection-list #menu [multiple]="false">
-      <mat-list-option routerLink="/dashboard">
+      <mat-list-option routerLink="/dashboard" (click)="menu.toggle()">
         {{ 'dashboard.title' | translate }}
       </mat-list-option>
-      <mat-list-option routerLink="/login">
+      <mat-list-option routerLink="/login" (click)="menu.toggle()">
         {{ 'login.title' | translate }}
       </mat-list-option>
-      <mat-list-option routerLink="/performances">
+      <mat-list-option routerLink="/performances" (click)="menu.toggle()">
         {{ 'performances.title' | translate }}
       </mat-list-option>
-      <mat-list-option routerLink="/trainings">
+      <mat-list-option routerLink="/trainings" (click)="menu.toggle()">
         {{ 'trainings.title' | translate }}
       </mat-list-option>
-      <mat-list-option routerLink="/administration">
+      <mat-list-option routerLink="/administration" (click)="menu.toggle()">
         {{ 'administration.title' | translate }}
       </mat-list-option>
     </mat-selection-list>

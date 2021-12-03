@@ -12,26 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$arbeitsrapporte-frontend-primary: mat.define-palette(mat.$blue-grey-palette, 800, 600, 900);
-$arbeitsrapporte-frontend-accent: mat.define-palette(mat.$grey-palette, A200, A100, A400);
+$fhs-frontend-primary: mat.define-palette(mat.$blue-grey-palette, 800, 600, 900);
+$fhs-frontend-accent: mat.define-palette(mat.$grey-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$arbeitsrapporte-frontend-warn: mat.define-palette(mat.$red-palette);
+$fhs-frontend-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$arbeitsrapporte-frontend-theme: mat.define-light-theme((
+$fhs-frontend-theme: mat.define-light-theme((
   color: (
-    primary: $arbeitsrapporte-frontend-primary,
-    accent: $arbeitsrapporte-frontend-accent,
-    warn: $arbeitsrapporte-frontend-warn,
+    primary: $fhs-frontend-primary,
+    accent: $fhs-frontend-accent,
+    warn: $fhs-frontend-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($arbeitsrapporte-frontend-theme);
+@include mat.all-component-themes($fhs-frontend-theme);
 
 /* You can add global styles to this file, and also import other style files */
 

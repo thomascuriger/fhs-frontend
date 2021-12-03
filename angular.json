@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "arbeitsrapporte-frontend": {
+    "fhs-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/arbeitsrapporte-frontend",
+            "outputPath": "dist/fhs-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -40,8 +40,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -72,11 +72,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "arbeitsrapporte-frontend:build:production",
+              "browserTarget": "fhs-frontend:build:production",
               "proxyConfig": "proxy.conf.json"
             },
             "development": {
-              "browserTarget": "arbeitsrapporte-frontend:build:development",
+              "browserTarget": "fhs-frontend:build:development",
               "proxyConfig": "proxy.conf.json"
             }
           },
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "arbeitsrapporte-frontend:build"
+            "browserTarget": "fhs-frontend:build"
           }
         },
         "test": {
@@ -105,9 +105,19 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "fhs-frontend:build:production",
+            "firebaseProject": "pa-fhs",
+            "firebaseHostingSite": "pa-fhs"
+          }
         }
       }
     }
   },
-  "defaultProject": "arbeitsrapporte-frontend"
+  "defaultProject": "fhs-frontend"
 }
