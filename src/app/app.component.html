@@ -1,55 +1,70 @@
-<mat-drawer-container class="container" autosize>
-  <mat-toolbar color="primary">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-      (click)="drawer.toggle()"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>{{ 'title' | translate }}</span>
-    <span class="example-spacer"></span>
-    <!-- <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with more_vert icon"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button> -->
-  </mat-toolbar>
-  <mat-drawer #drawer opened="false" class="sidenav" mode="side">
-    <div class="logo">
-      <a routerLink="/dashboard">
-        <img src="../assets/ffhs.svg" alt="Deimos_Logo" />
-      </a>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sidenav
+    mode="over"
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+  >
+    <div class="sidenav-content">
+      <div class="logo">
+        <a routerLink="/dashboard">
+          <img src="../assets/ffhs.svg" alt="Deimos_Logo" />
+        </a>
+      </div>
+      <mat-selection-list #menu [multiple]="false">
+        <mat-list-option routerLink="/dashboard" (click)="sidenav.toggle()">
+          {{ 'dashboard.title' | translate }}
+        </mat-list-option>
+        <mat-list-option routerLink="/login" (click)="sidenav.toggle()">
+          {{ 'login.title' | translate }}
+        </mat-list-option>
+        <mat-list-option routerLink="/performances" (click)="sidenav.toggle()">
+          {{ 'performances.title' | translate }}
+        </mat-list-option>
+        <mat-list-option routerLink="/trainings" (click)="sidenav.toggle()">
+          {{ 'trainings.title' | translate }}
+        </mat-list-option>
+        <mat-list-option routerLink="/administration" (click)="sidenav.toggle()">
+          {{ 'administration.title' | translate }}
+        </mat-list-option>
+        <mat-list-option routerLink="/login" (click)="sidenav.toggle()">
+          {{ 'logout.title' | translate }}
+        </mat-list-option>
+      </mat-selection-list>
     </div>
-    <mat-selection-list #menu [multiple]="false">
-      <mat-list-option routerLink="/dashboard" (click)="menu.toggle()">
-        {{ 'dashboard.title' | translate }}
-      </mat-list-option>
-      <mat-list-option routerLink="/login" (click)="menu.toggle()">
-        {{ 'login.title' | translate }}
-      </mat-list-option>
-      <mat-list-option routerLink="/performances" (click)="menu.toggle()">
-        {{ 'performances.title' | translate }}
-      </mat-list-option>
-      <mat-list-option routerLink="/trainings" (click)="menu.toggle()">
-        {{ 'trainings.title' | translate }}
-      </mat-list-option>
-      <mat-list-option routerLink="/administration" (click)="menu.toggle()">
-        {{ 'administration.title' | translate }}
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-drawer>
+  </mat-sidenav>
 
-  <div class="content" autosize>
-    <div class="inner-content">
-      <router-outlet></router-outlet></div>
-  </div>
-  <mat-toolbar color="secondary">
-    <mat-toolbar-row class="footer">
-      <span>API-Version 0.0.1-SNAPSHOT</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</mat-drawer-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ 'title' | translate }}</span>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with more_vert icon"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="content">
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <mat-toolbar color="secondary">
+      <mat-toolbar-row class="footer">
+        <span>API-Version 0.0.1-SNAPSHOT</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

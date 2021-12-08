@@ -1,3 +1,4 @@
+import { PerformanceComponent } from './performance/performance.component';
 import { PerformancesComponent } from './performances.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: 'ranking/:id',
     component: RankingComponent
+  },
+  {
+    path: 'performance/:id',
+    component: PerformanceComponent
   },
   {
     path: '',

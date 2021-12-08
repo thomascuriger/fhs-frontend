@@ -1,11 +1,28 @@
-<h1>{{"dashboard.title" | translate}}</h1>
-Liste mit allen Trainings inkl. datum
-(gleiche list )
+<h1>{{"performances.title" | translate}}</h1>
+Liste mit allen Trainings inkl. Datum
+<br/><br/>
 
 <mat-card *ngFor="let session of trainingsessions" (click)="navigateToRanking(session.id)">
-  {{session.title}}
+  <mat-card-subtitle>{{session.title}}</mat-card-subtitle>
+  <mat-card-actions align="end">
+    <button mat-button primary>zum Ranking navigieren</button>
+  </mat-card-actions>
 </mat-card>
-
+<br/>
+<mat-card *ngFor="let session of trainingsessions" (click)="navigateToRanking(session.id)">
+  <mat-card-subtitle>{{session.title}}</mat-card-subtitle>
+  <mat-card-actions align="end">
+    <button mat-button primary>zum Ranking navigieren</button>
+  </mat-card-actions>
+</mat-card>
+<br/>
+<mat-card *ngFor="let session of trainingsessions" (click)="navigateToRanking(session.id)">
+  <mat-card-subtitle>{{session.title}}</mat-card-subtitle>
+  <mat-card-actions align="end">
+    <button mat-button primary>zum Ranking navigieren</button>
+  </mat-card-actions>
+</mat-card>
+<!--
 <mat-nav-list>
   <mat-list-item routerLink="ranking/1">
     <p>training 1</p>
@@ -17,3 +34,4 @@ Liste mit allen Trainings inkl. datum
     <p>training 3</p>
   </mat-list-item>
 </mat-nav-list>
+ -->

@@ -10,6 +10,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent {
   param = { value: 'world' };
+  events: string[] = [];
+  opened = false;
 
   constructor(translate: TranslateService, private router: Router) {
     // this language will be used as a fallback when a translation isn't found in the current language

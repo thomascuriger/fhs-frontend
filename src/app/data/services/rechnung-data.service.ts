@@ -1,5 +1,3 @@
-import { Rechnung } from '@app/data/models';
-
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RechnungenDataService {
-  private baseUrl = '/api/rechnungen';
+  /* private baseUrl = '/api/rechnungen';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -37,6 +35,6 @@ export class RechnungenDataService {
       return this.baseUrl.concat('/' + id);
     }
     return this.baseUrl;
-  }
+  } */
 
 }

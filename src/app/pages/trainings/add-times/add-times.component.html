@@ -2,18 +2,28 @@
 <form [formGroup]="form">
   <app-select-training
     [form]="form"
+    [label]="'trainings.choose' | translate"
     fieldName="chosenTraining"
     [trainingSessions]="trainingSessions"
     [(value)]="chosenTraining"
   ></app-select-training>
   <br />
   <div *ngIf="chosenTraining.id">
-    <p>{{ chosenTraining.title }}</p>
-    hier folgt dann das eingeben der Trainingsdaten
+    <h2>{{ chosenTraining.title }}</h2>
+    <p>{{ 'trainings.introduction' | translate }}</p>
+    <rpt-number [form]="form" fieldName="time-1" label="400m">asdf</rpt-number>
+    <rpt-number [form]="form" fieldName="time-2" label="400m">asdf</rpt-number>
+    <rpt-number [form]="form" fieldName="time-3" label="400m">asdf</rpt-number>
+    <rpt-number [form]="form" fieldName="time-4" label="400m">asdf</rpt-number>
+    <rpt-number [form]="form" fieldName="time-5" label="400m">asdf</rpt-number>
+    <br />
+    <button mat-raised-button color="primary" (click)="navigateBack()">
+      {{ 'trainings.save' | translate }}
+    </button>
   </div>
   <br />
-  <button mat-raised-button color="primary">{{ 'trainings.save' | translate }}</button>
   <br />
-  <br />
-  <button mat-raised-button>{{ 'trainings.cancel' | translate }}</button>
+  <button mat-raised-button (click)="navigateBack()">
+    {{ 'trainings.cancel' | translate }}
+  </button>
 </form>

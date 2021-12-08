@@ -1,7 +1,8 @@
 {
   "title": "Faster - Higher - Stronger V0.0.1",
   "dashboard": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "welcome": "Herzlich willkommen!"
   },
   "login": {
     "title": "Login?"
@@ -13,10 +14,18 @@
     "title": "Trainings",
     "add": "Training hinzufügen",
     "save": "Training speichern",
+    "choose": "Training auswählen",
+    "introduction": "Gib hier die Zeiten in Sekunden ein",
     "cancel": "Abbrechen"
+  },
+  "performance": {
+    "title": "Trainingsleistung"
   },
   "administration": {
     "title": "Administration"
+  },
+  "logout": {
+    "title": "Logout?"
   }
 
 }

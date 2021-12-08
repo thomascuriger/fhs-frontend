@@ -17,16 +17,21 @@ export class AddTimesComponent implements OnInit {
   chosenTraining: Trainingsession = new Trainingsession();
 
   constructor(
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const trainingSession = {
       id: 1,
-      title: 'Trainingstitel',
+      title: '5*400m, 60" Pause',
       date: new Date(),
       training: new Training()
     }
     this.trainingSessions.push(trainingSession);
+  }
+
+  navigateBack() {
+    this.router.navigate(['/trainings']);
   }
 
 }

@@ -16,7 +16,7 @@ export class PerformancesComponent implements OnInit {
   ngOnInit(): void {
     const trainingSession = {
       id: 1,
-      title: 'Trainingstitel',
+      title: 'Training vom 8. Dezember 2021',
       date: new Date(),
       training: new Training()
     };

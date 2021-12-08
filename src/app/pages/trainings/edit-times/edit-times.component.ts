@@ -1,8 +1,5 @@
-import { AuftraegeDataService } from '../../../data/services/auftrag-data.service';
-import { KundenDataService } from '../../../data/services/kunden-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Auftrag, Kunde } from '@app/data/models';
 
 @Component({
   selector: 'app-edit-times',
@@ -12,13 +9,9 @@ import { Auftrag, Kunde } from '@app/data/models';
 export class EditTimesComponent implements OnInit {
 
   id: number = 0;
-  kunde?: Kunde;
-  auftraege: Auftrag[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private kundenDataService: KundenDataService,
-    private auftraegeService: AuftraegeDataService
   ) { }
 
   ngOnInit(): void {

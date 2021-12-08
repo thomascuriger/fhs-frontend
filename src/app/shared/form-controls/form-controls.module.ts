@@ -11,7 +11,6 @@ import { RadioComponent } from './radio/radio.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { UrlComponent } from './url/url.component';
-import { AbstractFormControlComponent } from './abstract-form-control.component';
 
 @NgModule({
   declarations: [

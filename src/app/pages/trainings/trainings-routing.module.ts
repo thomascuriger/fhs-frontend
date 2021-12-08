@@ -10,7 +10,7 @@ const routes: Routes = [
     component: AddTimesComponent
   },
   {
-    path: 'details/:id',
+    path: 'edit/:id',
     component: EditTimesComponent
   },
   {

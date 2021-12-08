@@ -2,11 +2,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ranking-card',
-  templateUrl: './ranking-card.component.html',
-  styleUrls: ['./ranking-card.component.scss']
+  selector: 'app-training-card',
+  templateUrl: './training-card.component.html',
+  styleUrls: ['./training-card.component.scss']
 })
-export class RankingCardComponent implements OnInit {
+export class TrainingCardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +25,10 @@ export class RankingCardComponent implements OnInit {
 
   get() {
 
+  }
+
+  navigateToEdit() {
+    this.router.navigate(['trainings/edit/' + this.id]);
   }
 
   navigateToDetails() {
