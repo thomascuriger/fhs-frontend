@@ -24,8 +24,7 @@ export class AddTimesComponent implements OnInit {
     const trainingSession = {
       id: 1,
       title: '5*400m, 60" Pause',
-      date: new Date(),
-      training: new Training()
+      date: new Date()
     }
     this.trainingSessions.push(trainingSession);
   }

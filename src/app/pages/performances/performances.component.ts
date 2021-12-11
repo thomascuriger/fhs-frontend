@@ -17,8 +17,7 @@ export class PerformancesComponent implements OnInit {
     const trainingSession = {
       id: 1,
       title: 'Training vom 8. Dezember 2021',
-      date: new Date(),
-      training: new Training()
+      date: new Date()
     };
     this.trainingsessions.push(trainingSession);
   }
