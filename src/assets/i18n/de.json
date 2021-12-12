@@ -14,6 +14,8 @@
     "title": "Trainings",
     "add": "Training hinzufügen",
     "save": "Training speichern",
+    "edit": "Bearbeiten",
+    "details": "Details",
     "choose": "Training auswählen",
     "introduction": "Gib hier die Zeiten in Sekunden ein",
     "cancel": "Abbrechen"
@@ -22,7 +24,12 @@
     "title": "Trainingsleistung"
   },
   "administration": {
-    "title": "Administration"
+    "title": "Administration",
+    "add": {
+      "title": "Training hinzufügen",
+      "add_distance": "Distanz eingeben",
+      "save": "Training speichern"
+    }
   },
   "logout": {
     "title": "Logout?"

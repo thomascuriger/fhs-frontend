@@ -1,14 +1,12 @@
 <h1>{{ 'trainings.title' | translate }}</h1>
 
-<button mat-raised-button routerLink="/trainings/add">{{ 'trainings.add' | translate }}</button>
+<button mat-raised-button routerLink="/trainings/add" color="primary">{{ 'trainings.add' | translate }}</button>
 <br />
 <br/>
 <p>Liste mit allen gemachten Trainings pro Läufer</p>
 <p>Jeder Eintrag braucht jeweils einen eigenen edit- und view-Button</p>
 
-<app-training-card></app-training-card>
-<br/>
-<app-training-card></app-training-card>
-<br/>
-<app-training-card></app-training-card>
+<div *ngFor="let training of trainings;">
+  <app-training-card [training]="training"></app-training-card>
+</div>
 <br/>

@@ -8,7 +8,6 @@ import * as moment from 'moment';
 })
 export class AdministrationComponent implements OnInit {
 
-
   constructor() {}
 
   ngOnInit(): void {

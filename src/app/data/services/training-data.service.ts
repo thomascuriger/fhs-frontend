@@ -11,10 +11,8 @@ export class TrainingDataService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAll(): Observable<Page<TrainingDto>> {
-    return this.httpClient
-      .get<PageDto<TrainingDto>>(this.baseUrl)
-      .pipe(map(dto => new Page<Training>(dto, Training)));
+  getAll(): Observable<any> {
+    return this.httpClient.get(this.getTrainingUrl());
   }
 
   getOne(id: number): Observable<Training> {

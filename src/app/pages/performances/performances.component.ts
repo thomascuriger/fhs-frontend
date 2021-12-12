@@ -14,15 +14,11 @@ export class PerformancesComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const trainingSession = {
+    /* const trainingSession = {
       id: 1,
       title: 'Training vom 8. Dezember 2021',
-      date: new Date()
     };
-    this.trainingsessions.push(trainingSession);
+    this.trainingsessions.push(trainingSession); */
   }
 
-  navigateToRanking(id: number) {
-    this.router.navigate(['performances/ranking/' + id]);
-  }
 }

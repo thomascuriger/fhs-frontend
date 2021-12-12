@@ -2,6 +2,7 @@ import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Training, Trainingsession } from '@app/data/models';
 import { Router } from '@angular/router';
+import { TrainingsessionDataService } from '@app/data/services';
 
 @Component({
   selector: 'app-add-times',
@@ -9,28 +10,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-times.component.scss']
 })
 export class AddTimesComponent implements OnInit {
-
   form: FormGroup = new FormGroup({});
 
   trainingSessions: Trainingsession[] = [];
 
-  chosenTraining: Trainingsession = new Trainingsession();
+  chosenTraining: any;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private trainingsessionService: TrainingsessionDataService
   ) {}
 
   ngOnInit(): void {
-    const trainingSession = {
-      id: 1,
-      title: '5*400m, 60" Pause',
-      date: new Date()
-    }
-    this.trainingSessions.push(trainingSession);
+    this.trainingsessionService.getAll().subscribe(data => {
+      data.forEach((element: Trainingsession) => {
+        this.trainingSessions.push(element);
+      });
+    });
+    this.chosenTraining = this.trainingSessions[0];
   }
 
   navigateBack() {
     this.router.navigate(['/trainings']);
   }
-
 }

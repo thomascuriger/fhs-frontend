@@ -1,5 +1,6 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Training } from '@app/data/models';
 
 @Component({
   selector: 'app-training-card',
@@ -7,32 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./training-card.component.scss']
 })
 export class TrainingCardComponent implements OnInit {
+  @Input() training?: Training;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
+  constructor(private router: Router) {}
 
-  id = 0;
-
-
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.get();
-    });
-  }
-
-  get() {
-
-  }
+  ngOnInit(): void {}
 
   navigateToEdit() {
-    this.router.navigate(['trainings/edit/' + this.id]);
+    this.router.navigate(['trainings/edit/' + this.training?.id]);
   }
 
   navigateToDetails() {
-    this.router.navigate(['performances/performance/' + this.id]);
+    this.router.navigate(['performances/performance/' + this.training?.id]);
   }
-
 }

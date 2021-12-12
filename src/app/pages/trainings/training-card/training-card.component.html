@@ -1,12 +1,12 @@
 <mat-card class="example-card ranking-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Training vom 10.12.2021</mat-card-title>
-    <mat-card-subtitle>Untertitel</mat-card-subtitle>
+    <mat-card-title>{{ training?.title }}</mat-card-title>
+    <mat-card-subtitle>{{ training?.date }}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content> Trainingskommentar des Nutzers. </mat-card-content>
+  <mat-card-content>{{ training?.description }}</mat-card-content>
   <mat-card-actions style="text-align: right">
-    <button mat-raised-button primary (click)="navigateToEdit()">Bearbeiten</button>
-    <button mat-raised-button primary (click)="navigateToDetails()">Details</button>
+    <button mat-raised-button primary (click)="navigateToEdit()">{{'trainings.edit' | translate}}</button>
+    <button mat-raised-button primary (click)="navigateToDetails()">{{'trainings.details' | translate}}</button>
   </mat-card-actions>
 </mat-card>

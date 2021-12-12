@@ -1,24 +1,29 @@
-import { Training } from '.';
+import { Trainingsessionsplit } from '.';
 
 export interface TrainingsessionDto {
-  readonly id: number;
-  readonly title: string;
-  readonly date: Date;
-  readonly training: Training;
+  readonly id?: number;
+  readonly title?: string;
+  readonly trainingsessionsplits?: Trainingsessionsplit[];
 }
 
 export class Trainingsession {
-  id?: number;
+  readonly id?: number;
   title?: string;
-  date?: Date;
-  training?: Training;
+  trainingsessionsplits?: Trainingsessionsplit[];
 
   constructor(dto?: TrainingsessionDto) {
-    if (dto) {
-      this.id = dto.id;
-      this.title = dto.title;
-      this.date = dto.date;
-      this.training = dto.training;
-    }
+      if (dto) {
+        this.id = dto.id;
+        this.title = dto.title;
+        this.trainingsessionsplits = dto.trainingsessionsplits;
+      }
+  }
+
+  get dto(): TrainingsessionDto {
+    return {
+      id: this.id,
+      title: this.title,
+      trainingsessionsplits: this.trainingsessionsplits
+    };
   }
 }

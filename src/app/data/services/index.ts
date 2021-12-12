@@ -1,1 +1,2 @@
-export * from './rechnung-data.service';
+export * from './training-data.service';
+export * from './trainingsession-data.service';
