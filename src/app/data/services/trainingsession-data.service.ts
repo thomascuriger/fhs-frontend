@@ -21,7 +21,7 @@ export class TrainingsessionDataService {
       .pipe(map(dto => new Trainingsession(dto)));
   }
 
-  createTraining(trainingsession: Trainingsession): Observable<Trainingsession> {
+  createTrainingsession(trainingsession: Trainingsession): Observable<Trainingsession> {
     return this.httpClient
       .post<TrainingsessionDto>(this.getTrainingsessionUrl(), trainingsession.dto)
       .pipe(map(dto => new Trainingsession(dto)));

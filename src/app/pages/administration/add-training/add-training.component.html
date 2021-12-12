@@ -1,8 +1,27 @@
-<h1>{{"administration.add_training.title" | translate}}</h1>
+<h1>{{ 'administration.add_training.title' | translate }}</h1>
 <p>Alle Inputs zum Erfassen eines Trainings</p>
 <form [formGroup]="form">
-  <rpt-text [form]="form" fieldName="this"></rpt-text>
+  <mat-form-field>
+    <input type="text" matInput required="required" label="Titel des Trainings" formControlName="title"
+  /></mat-form-field>
+  <br/>
+  <br/>
+  <div
+    formArrayName="items"
+    *ngFor="let item of form?.get('items')['controls']; let i = index"
+  >
+    <div [formGroupName]="i">
+      <mat-form-field>
+        <input type="number" matInput required="required" formControlName="distance"
+      /></mat-form-field>
+    </div>
+    <br/>
+  </div>
 </form>
+
+<button mat-raised-button (click)="addTrainingsessionsplit()">
+  {{ 'administration.add.add' | translate }}
+</button>
 
 <button mat-raised-button (click)="save()">
   {{ 'administration.add.save' | translate }}

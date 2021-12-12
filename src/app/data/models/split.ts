@@ -6,13 +6,15 @@ export interface SplitDto {
 
 export class Split {
   readonly id?: number;
-  distance: number;
-  time: number;
+  distance?: number;
+  time?: number;
 
-  constructor(dto: SplitDto) {
-    this.id = dto.id;
-    this.distance = dto.distance;
-    this.time = dto.time;
+  constructor(dto?: SplitDto) {
+    if (dto) {
+      this.id = dto.id;
+      this.distance = dto.distance;
+      this.time = dto.time;
+    }
   }
 
   get dto() {
