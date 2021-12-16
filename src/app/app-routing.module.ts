@@ -26,7 +26,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/trainings/trainings.module').then(m => m.TrainingsModule)
   },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

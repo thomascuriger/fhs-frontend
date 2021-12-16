@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute
   ) { }
 
-  login(username: string, password: string, remember: boolean) {
+  /* login(username: string, password: string, remember: boolean) {
     this.authService.login(<Credentials>{ username, password }).subscribe(
       data => {
         this.notificationService.clear();
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         console.log('Error login', err);
       }
     );
-  }
+  } */
 
 
   ngOnInit() {
