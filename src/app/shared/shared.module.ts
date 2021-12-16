@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [CommonModule],
-  exports: [TranslateModule, MaterialModule, FormControlsModule, ReactiveFormsModule]
+  exports: [TranslateModule, MaterialModule, FormControlsModule, ReactiveFormsModule],
+  declarations: [LoginComponent]
 })
 export class SharedModule {}
