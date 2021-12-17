@@ -5,7 +5,8 @@
     "welcome": "Herzlich willkommen!"
   },
   "login": {
-    "title": "Login?"
+    "title": "Login",
+    "register": "Registrieren"
   },
   "performances": {
     "title": "Resultate"
@@ -27,12 +28,17 @@
     "title": "Administration",
     "add": {
       "title": "Training hinzufügen",
+      "add": "Weitere Distanz hinzufügen", 
       "add_distance": "Distanz eingeben",
       "save": "Training speichern"
     }
   },
   "logout": {
     "title": "Logout?"
+  },
+  "validation": {
+    "required": "Eingabe benötigt",
+    "password": "Passwort eingeben"
   }
 
 }

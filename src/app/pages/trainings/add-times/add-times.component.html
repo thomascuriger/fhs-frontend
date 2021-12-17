@@ -8,7 +8,7 @@
     [(value)]="chosenTraining"
   ></app-select-training>
   <br />
-  <div *ngIf="chosenTraining.id">
+  <div *ngIf="chosenTraining">
     <h2>{{ chosenTraining.title }}</h2>
     <p>{{ 'trainings.introduction' | translate }}</p>
     <rpt-number [form]="form" fieldName="time-1" label="400m">asdf</rpt-number>

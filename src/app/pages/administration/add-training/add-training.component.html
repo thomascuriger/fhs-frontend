@@ -1,4 +1,4 @@
-<h1>{{ 'administration.add_training.title' | translate }}</h1>
+<h1>{{ 'administration.add.title' | translate }}</h1>
 <p>Alle Inputs zum Erfassen eines Trainings</p>
 <form [formGroup]="form">
   <mat-form-field>
@@ -22,6 +22,8 @@
 <button mat-raised-button (click)="addTrainingsessionsplit()">
   {{ 'administration.add.add' | translate }}
 </button>
+<br/>
+<br/>
 
 <button mat-raised-button (click)="save()">
   {{ 'administration.add.save' | translate }}

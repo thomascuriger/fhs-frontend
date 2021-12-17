@@ -11,6 +11,7 @@ import { RadioComponent } from './radio/radio.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { UrlComponent } from './url/url.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { UrlComponent } from './url/url.component';
     TextareaComponent,
     UrlComponent
   ],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule],
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule, TranslateModule],
   exports: [
     CheckboxComponent,
     DateComponent,

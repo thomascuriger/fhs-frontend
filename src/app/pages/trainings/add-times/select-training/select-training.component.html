@@ -4,7 +4,7 @@
     <mat-option
       *ngFor="let trainingsession of trainingSessions"
       [value]="trainingsession"
-      >{{ trainingsession.title }}</mat-option
+      >{{ trainingsession?.title }}</mat-option
     >
   </mat-select>
   <mat-error *ngIf="form.controls[fieldName].hasError('required')" i18n

@@ -1,7 +1,19 @@
 <div class="form-group">
   <mat-form-field [formGroup]="form" class="fc-input">
-    <input type="text" matInput [required]="required" [formControlName]="fieldName" [placeholder]="label" [maxlength]="maxLength || null" [readonly]="readonly || null">
-    <mat-hint *ngIf="maxLength" align="end">{{value ? value.length : 0}} / {{maxLength}}</mat-hint>
-    <mat-error *ngIf="form.controls[fieldName].hasError('required')" i18n>validation.required</mat-error>
+    <input
+      type="text"
+      matInput
+      [required]="required"
+      [formControlName]="fieldName"
+      [placeholder]="label"
+      [maxlength]="maxLength || null"
+      [readonly]="readonly || null"
+    />
+    <mat-hint *ngIf="maxLength" align="end"
+      >{{ value ? value.length : 0 }} / {{ maxLength }}</mat-hint
+    >
+    <mat-error *ngIf="form.controls[fieldName].hasError('required')">{{
+      'validation.required' | translate
+    }}</mat-error>
   </mat-form-field>
 </div>
