@@ -2,6 +2,7 @@
 <p>Alle Inputs zum Erfassen eines Trainings</p>
 <form [formGroup]="form">
   <mat-form-field>
+    <mat-label>Titel des Trainings</mat-label>
     <input type="text" matInput required="required" label="Titel des Trainings" formControlName="title"
   /></mat-form-field>
   <br/>
@@ -12,7 +13,7 @@
   >
     <div [formGroupName]="i">
       <mat-form-field>
-        <input type="number" matInput required="required" formControlName="distance"
+        <input matInput type="number" matInput required="required" formControlName="distance"
       /></mat-form-field>
     </div>
     <br/>
@@ -20,6 +21,9 @@
 </form>
 
 <button mat-raised-button (click)="addTrainingsessionsplit()">
+  {{ 'administration.add.add' | translate }}
+</button>
+<button mat-raised-button (click)="addTrainingsessionbreak()">
   {{ 'administration.add.add' | translate }}
 </button>
 <br/>

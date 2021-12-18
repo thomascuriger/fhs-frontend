@@ -1,7 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TokenStorageService } from '@shared/services/token-storage.service';
 import { EMPTY, map, Observable } from 'rxjs';
-import { Page, PageDto, Training, TrainingDto } from '../models';
+import { Page, PageDto, Training } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,28 +10,35 @@ import { Page, PageDto, Training, TrainingDto } from '../models';
 export class TrainingDataService {
   private baseUrl = '/api/training';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private tokenStorageService: TokenStorageService
+  ) {}
 
   getAll(): Observable<any> {
-    return this.httpClient.get(this.getTrainingUrl());
+    return this.httpClient.get(this.getTrainingUrl(), this.getHttpOptions());
   }
 
   getOne(id: number): Observable<Training> {
     return this.httpClient
-      .get<TrainingDto>(this.getTrainingUrl(id))
-      .pipe(map(dto => new Training(dto)));
+      .get<Training>(this.getTrainingUrl(id), this.getHttpOptions())
+  }
+
+  getTrainingByUserId(userId: number): Observable<any> {
+    return this.httpClient.get(
+      this.baseUrl.concat('/user').concat('/' + userId),
+      this.getHttpOptions()
+    );
   }
 
   createTraining(training: Training): Observable<Training> {
     return this.httpClient
-      .post<TrainingDto>(this.getTrainingUrl(), training.dto)
-      .pipe(map(dto => new Training(dto)));
+      .post<Training>(this.getTrainingUrl(), training)
   }
 
   updateTraining(training: Training): Observable<Training> {
     return this.httpClient
-      .post<TrainingDto>(this.getTrainingUrl(), training.dto)
-      .pipe(map(dto => new Training(dto)));
+      .post<Training>(this.getTrainingUrl(), training, this.getHttpOptions())
   }
 
   delete(training: Training): Observable<void> {
@@ -43,5 +51,18 @@ export class TrainingDataService {
       return this.baseUrl.concat('/' + id);
     }
     return this.baseUrl;
+  }
+
+  getHttpOptions() {
+    const authToken = this.tokenStorageService.getToken();
+    let params: HttpParams = new HttpParams();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + authToken
+      }),
+      params: params
+    };
+    return httpOptions;
   }
 }

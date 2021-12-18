@@ -55,7 +55,6 @@ export class TrainingsComponent implements OnInit {
         ]
       }
     ] */
-
     this.trainingDataService.getAll().subscribe(data => {
       console.log(data)
       this.trainings = data;

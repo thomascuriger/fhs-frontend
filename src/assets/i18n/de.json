@@ -34,7 +34,7 @@
     }
   },
   "logout": {
-    "title": "Logout?"
+    "title": "Logout"
   },
   "validation": {
     "required": "Eingabe benötigt",

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth.service';
 import { TokenStorageService } from '@shared/services/token-storage.service';
 
@@ -17,7 +18,11 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -29,13 +34,13 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: data => {
-        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        this.router.navigate(['/login']);
       },
       error: err => {
         this.errorMessage = err.error.message;

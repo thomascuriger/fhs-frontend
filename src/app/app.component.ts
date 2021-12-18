@@ -31,7 +31,6 @@ export class AppComponent {
   logout() {
     this.tokenStorageService.signOut();
     this.router.navigate(['/login'])
-    window.location.reload();
   }
 
   isLoggedIn() {

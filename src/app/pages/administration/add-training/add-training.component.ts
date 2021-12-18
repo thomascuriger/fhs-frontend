@@ -10,6 +10,7 @@ import { TrainingsessionDataService } from '@app/data/services';
 })
 export class AddTrainingComponent implements OnInit {
   form?: FormGroup;
+  title = '';
 
   constructor(
     private trainingsessiondataService: TrainingsessionDataService,
@@ -24,14 +25,25 @@ export class AddTrainingComponent implements OnInit {
   ngOnInit(): void {}
 
   items(): FormArray {
-    return this.form?.get("items") as FormArray;
+    return this.form?.get('items') as FormArray;
   }
 
   addTrainingsessionsplit(): void {
     let items = this.form?.get('items') as FormArray;
-    items.push(this.formBuilder.group({
-      distance: ''
-    }))
+    items.push(
+      this.formBuilder.group({
+        distance: ''
+      })
+    );
+  }
+
+  addTrainingsessionbreak(): void {
+    let items = this.form?.get('items') as FormArray;
+    items.push(
+      this.formBuilder.group({
+        breakTime: ''
+      })
+    );
   }
 
   removeTrainingsessionsplit(index: number) {
@@ -39,12 +51,19 @@ export class AddTrainingComponent implements OnInit {
   }
 
   save() {
-    const trainingsession = new Trainingsession();
+    const trainingsession: Trainingsession = { title: '', trainingsessionsplits: [] };
     console.log(this.form?.value);
     trainingsession.title = this.form?.value.title;
-    this.form?.value.items.forEach((element: Trainingsessionsplit) => {
-      trainingsession.trainingsessionsplits?.push(element);
+    trainingsession.trainingsessionsplits = [];
+    this.form?.value.items.forEach((element: any) => {
+      const split = new Trainingsessionsplit();
+      split.distance = element.distance;
+      console.log(split);
+      trainingsession.trainingsessionsplits?.push(split);
     });
-    this.trainingsessiondataService.createTrainingsession(trainingsession);
+    this.trainingsessiondataService
+      .createTrainingsession(trainingsession)
+      .subscribe(data => console.log());
+    console.log(trainingsession);
   }
 }
