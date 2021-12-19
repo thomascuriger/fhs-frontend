@@ -15,6 +15,7 @@ export class RegistrationComponent implements OnInit {
   firstname = '';
   lastname = '';
   email = '';
+  role = 'user';
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -25,12 +26,13 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.authService
-      .register(this.username, this.firstname, this.lastname, this.email, this.password)
+      .register(this.username, this.firstname, this.lastname, this.email, this.password, this.role)
       .subscribe({
         next: data => {
           console.log(data);
           this.isSuccessful = true;
           this.isSignUpFailed = false;
+          this.navigateToLogin();
         },
         error: err => {
           this.errorMessage = err.error.message;

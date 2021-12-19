@@ -1,6 +1,6 @@
 <div class="col-md-12">
+  <h1>{{ 'registration.title' | translate }}</h1>
   <mat-card class="login-card">
-    {{ 'registration.title' | translate }}
     <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit()" novalidate>
       <div class="form-group">
         <label for="firstname">{{ 'registration.firstname' | translate }}</label>
@@ -27,8 +27,8 @@
         ></rpt-text>
       </div>
       <div class="form-group">
-        <label for="email">{{ 'registration.password' | translate }}</label>
-        <rpt-password
+        <label for="email">{{ 'registration.email' | translate }}</label>
+        <rpt-email
           [form]="form"
           type="email"
           class="form-control"
@@ -36,7 +36,7 @@
           [(value)]="email"
           fieldName="email"
           required
-        ></rpt-password>
+        ></rpt-email>
       </div>
       <div class="form-group">
         <label for="username">{{ 'registration.username' | translate }}</label>
@@ -64,7 +64,15 @@
         ></rpt-password>
       </div>
       <div class="form-group">
-        <button mat-raised-button primary (click)="onSubmit()">
+        <app-role-select
+          [form]="form"
+          fieldName="role"
+          [(value)]="role"
+        ></app-role-select>
+      </div>
+      <br/>
+      <div class="form-group">
+        <button mat-raised-button color="primary" (click)="onSubmit()">
           {{ 'registration.register' | translate }}
         </button>
       </div>
