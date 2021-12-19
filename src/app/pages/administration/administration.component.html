@@ -1,38 +1,15 @@
-<h1>{{"administration.title" | translate }}</h1>
-<br/>
-<button mat-raised-button routerLink="/administration/add" color="primary">{{"administration.add.title" | translate}}</button>
-<br/>
-<br/>
-<mat-list>
-<mat-list-item>
-  <mat-icon mat-list-icon>directions_run</mat-icon>
-  <div mat-line>Training 1</div>
-  <div mat-line>Datum</div>
-</mat-list-item>
-<mat-list-item>
-  <mat-icon mat-list-icon>directions_run</mat-icon>
-  <div mat-line>Training 2</div>
-  <div mat-line>Datum</div>
-</mat-list-item>
-<mat-list-item>
-  <mat-icon mat-list-icon>directions_run</mat-icon>
-  <div mat-line>Training 3</div>
-  <div mat-line>Datum</div>
-</mat-list-item>
-<mat-list-item>
-  <mat-icon mat-list-icon>directions_run</mat-icon>
-  <div mat-line>Training 4</div>
-  <div mat-line>Datum</div>
-</mat-list-item>
-<mat-list-item>
-  <mat-icon mat-list-icon>directions_run</mat-icon>
-  <div mat-line>Training 5</div>
-  <div mat-line>Datum</div>
-</mat-list-item>
-<mat-list-item>
-  <mat-icon mat-list-icon>directions_run</mat-icon>
-  <div mat-line>Training 6</div>
-  <div mat-line>Datum</div>
-</mat-list-item>
-
-</mat-list>
+<h1>{{ 'administration.title' | translate }}</h1>
+<br />
+<button mat-raised-button routerLink="/administration/add" color="primary">
+  {{ 'administration.add.title' | translate }}
+</button>
+<br />
+<br />
+<mat-action-list *ngIf="trainingsessions.length > 0">
+  <mat-list-item *ngFor="let session of trainingsessions">
+    <mat-icon mat-list-icon>directions_run</mat-icon>
+    <div mat-line>{{session.title}}</div>
+    <div mat-line [innerHtml]="formatDate(session.date)"></div>
+    <mat-icon (click)="editTrainingSession(session.id)">edit</mat-icon>
+  </mat-list-item>
+</mat-action-list>

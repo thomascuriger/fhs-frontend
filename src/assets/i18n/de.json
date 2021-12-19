@@ -6,7 +6,20 @@
   },
   "login": {
     "title": "Login",
-    "register": "Registrieren"
+    "register": "Registrieren",
+    "welcome": "Herzlich willkommen bei Faster, Higher, Stronger - der besten Plattform für die Verwaltung von Leichtathletiktrainings!",
+    "username": "Username",
+    "password": "Passwort"
+  },
+  "registration": {
+    "title": "Registrierung",
+    "register": "Registrieren",
+    "firstname": "Vorname",
+    "lastname": "Nachname",
+    "username": "Username",
+    "password": "Passwort",
+    "email": "E-Mail",
+    "to_login": "Zurück zum Login"
   },
   "performances": {
     "title": "Resultate"
@@ -28,8 +41,22 @@
     "title": "Administration",
     "add": {
       "title": "Training hinzufügen",
+      "title_of": "Titel des Trainings",
+      "description": "Beschreibung des Trainings",
       "add": "Weitere Distanz hinzufügen", 
-      "add_distance": "Distanz eingeben",
+      "add_distance": "Distanz",
+      "break": "Wetere Pause hinzufügen",
+      "add_break": "Pausendauer in s eingeben",
+      "save": "Training speichern"
+    },
+    "edit": {
+      "title": "Training editieren",
+      "title_of": "Titel des Trainings",
+      "description": "Beschreibung des Trainings",
+      "add": "Weitere Distanz hinzufügen", 
+      "add_distance": "Distanz",
+      "break": "Wetere Pause hinzufügen",
+      "add_break": "Pausendauer in s eingeben",
       "save": "Training speichern"
     }
   },

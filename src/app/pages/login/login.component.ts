@@ -40,13 +40,18 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.router.navigate(['/login']);
+        console.log(this.tokenStorage.getUser());
+        this.router.navigate(['/dashboard']);
       },
       error: err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
     });
+  }
+
+  navigateToRegistration() {
+    this.router.navigate(['/signup']);
   }
 
   reloadPage(): void {

@@ -4,4 +4,5 @@ export * from './training';
 export * from './page';
 export * from './filter';
 export * from './split';
-export * from './trainingsessionsplit'
+export * from './trainingsessionsplit';
+export * from './category';

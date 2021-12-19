@@ -2,32 +2,61 @@
 <p>Alle Inputs zum Erfassen eines Trainings</p>
 <form [formGroup]="form">
   <mat-form-field>
-    <mat-label>Titel des Trainings</mat-label>
-    <input type="text" matInput required="required" label="Titel des Trainings" formControlName="title"
+    <mat-label>{{ 'administration.add.title_of' | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      required="required"
+      label="Titel des Trainings"
+      formControlName="title"
   /></mat-form-field>
-  <br/>
-  <br/>
+  <br />
+  <br />
+  <mat-form-field>
+    <mat-label>{{ 'administration.add.description' | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      required="required"
+      label="Beschreibung des Trainings"
+      formControlName="description"
+  /></mat-form-field>
+  <br />
+  <br />
   <div
     formArrayName="items"
     *ngFor="let item of form?.get('items')['controls']; let i = index"
   >
     <div [formGroupName]="i">
       <mat-form-field>
-        <input matInput type="number" matInput required="required" formControlName="distance"
-      /></mat-form-field>
+        <input
+          matInput
+          type="number"
+          required="required"
+          placeholder="{{ 'administration.add.add_distance' | translate }}"
+          formControlName="distance"
+        /><br />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          required="required"
+          formControlName="breaktime"
+          placeholder="{{ 'administration.add.add_break' | translate }}"
+        />
+      </mat-form-field>
     </div>
-    <br/>
+    <br />
   </div>
 </form>
 
 <button mat-raised-button (click)="addTrainingsessionsplit()">
   {{ 'administration.add.add' | translate }}
 </button>
-<button mat-raised-button (click)="addTrainingsessionbreak()">
-  {{ 'administration.add.add' | translate }}
-</button>
-<br/>
-<br/>
+<br />
+<br />
 
 <button mat-raised-button (click)="save()">
   {{ 'administration.add.save' | translate }}

@@ -1,8 +1,9 @@
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Training, Trainingsession } from '@app/data/models';
+import { Split, Training, Trainingsession } from '@app/data/models';
 import { Router } from '@angular/router';
-import { TrainingsessionDataService } from '@app/data/services';
+import { TrainingDataService, TrainingsessionDataService } from '@app/data/services';
+import { TokenStorageService } from '@shared/services/token-storage.service';
 
 @Component({
   selector: 'app-add-times',
@@ -14,11 +15,22 @@ export class AddTimesComponent implements OnInit {
 
   trainingSessions: Trainingsession[] = [];
 
-  chosenTraining: any;
+  chosenTraining: Trainingsession = {
+    title: '',
+    description: '',
+    categoryId: 0,
+    trainingsessionsplits: []
+  };
+
+  date: Date = new Date();
+
+  temporarySplits = new Array<number>(100);
 
   constructor(
     private router: Router,
-    private trainingsessionService: TrainingsessionDataService
+    private trainingsessionService: TrainingsessionDataService,
+    private tokenStorage: TokenStorageService,
+    private trainingDataService: TrainingDataService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +40,31 @@ export class AddTimesComponent implements OnInit {
       });
     });
     this.chosenTraining = this.trainingSessions[0];
+  }
+
+  save() {
+    const training: Training = {
+      title: this.chosenTraining.title,
+      description: this.chosenTraining.description,
+      date: this.date,
+      userId: this.tokenStorage.getUser().id,
+      firstName: this.tokenStorage.getUser().firstname,
+      lastName: this.tokenStorage.getUser().lastname,
+      trainingsessionId: this.chosenTraining.id ? this.chosenTraining.id : 0,
+      categoryId: this.chosenTraining.categoryId,
+      splits: []
+    };
+    let i = 0;
+    while (this.temporarySplits[i] > 0) {
+      const split = new Split();
+      split.distance = this.chosenTraining?.trainingsessionsplits[i].distance;
+      split.time = this.temporarySplits[i];
+      training.splits.push(split);
+      i++;
+    }
+    this.trainingDataService.createTraining(training).subscribe(data => {
+      this.navigateBack();
+    });
   }
 
   navigateBack() {

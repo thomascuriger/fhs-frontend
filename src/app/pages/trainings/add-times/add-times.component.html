@@ -11,13 +11,16 @@
   <div *ngIf="chosenTraining">
     <h2>{{ chosenTraining.title }}</h2>
     <p>{{ 'trainings.introduction' | translate }}</p>
-    <rpt-number [form]="form" fieldName="time-1" label="400m">asdf</rpt-number>
-    <rpt-number [form]="form" fieldName="time-2" label="400m">asdf</rpt-number>
-    <rpt-number [form]="form" fieldName="time-3" label="400m">asdf</rpt-number>
-    <rpt-number [form]="form" fieldName="time-4" label="400m">asdf</rpt-number>
-    <rpt-number [form]="form" fieldName="time-5" label="400m">asdf</rpt-number>
+    <div *ngFor="let distance of chosenTraining.trainingsessionsplits; let i = index">
+      <rpt-number
+        [form]="form"
+        fieldName="time-i"
+        label="400m"
+        [(value)]="temporarySplits[i]"
+      ></rpt-number>
+    </div>
     <br />
-    <button mat-raised-button color="primary" (click)="navigateBack()">
+    <button mat-raised-button color="primary" (click)="save()">
       {{ 'trainings.save' | translate }}
     </button>
   </div>

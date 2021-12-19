@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TokenStorageService } from '@shared/services/token-storage.service';
-import { EMPTY, map, Observable } from 'rxjs';
-import { Training, Trainingsession } from '../models';
+import { EMPTY, Observable } from 'rxjs';
+import { Trainingsession } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrainingsessionDataService {
-  private baseUrl = '/api/training';
+  private baseUrl = '/api/trainingsession';
 
   constructor(
     private httpClient: HttpClient,
@@ -27,7 +27,6 @@ export class TrainingsessionDataService {
   }
 
   createTrainingsession(trainingsession: Trainingsession): Observable<Trainingsession> {
-    console.log(JSON.stringify(trainingsession), 'in service');
     return this.httpClient.post<Trainingsession>(
       this.getTrainingsessionUrl(),
       JSON.stringify(trainingsession), this.getHttpOptions()

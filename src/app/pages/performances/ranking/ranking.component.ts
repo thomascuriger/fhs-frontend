@@ -1,5 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { TrainingDataService } from '@app/data/services';
 
 @Component({
   selector: 'app-ranking',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingComponent implements OnInit {
 
+  trainings: any;
+
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private trainingDataService: TrainingDataService
   ) { }
 
   id = 0;
@@ -23,7 +27,10 @@ export class RankingComponent implements OnInit {
   }
 
   get() {
-
+    this.trainingDataService.getTrainingByTrainingsessionId(this.id)
+    .subscribe(data => {
+      this.trainings = data;
+    });
   }
 
 }

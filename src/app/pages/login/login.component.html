@@ -1,5 +1,6 @@
 <div class="col-md-12">
   <mat-card class="login-card">
+    {{ 'login.welcome' | translate }}
     <form
       *ngIf="!isLoggedIn"
       [formGroup]="form"
@@ -7,7 +8,7 @@
       novalidate
     >
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">{{ 'login.username' | translate }}</label>
         <rpt-text
           [form]="form"
           type="text"
@@ -19,7 +20,7 @@
         ></rpt-text>
       </div>
       <div class="form-group">
-        <label for="password">Passwort</label>
+        <label for="password">{{ 'login.password' | translate }}</label>
         <rpt-password
           [form]="form"
           type="password"
@@ -32,13 +33,17 @@
         ></rpt-password>
       </div>
       <div class="form-group">
-        <button mat-raised-button primary>{{'login.title' | translate}}</button>
+        <button mat-raised-button primary (click)="onSubmit()">
+          {{ 'login.title' | translate }}
+        </button>
       </div>
-      <br/>
+      <br />
       <div class="form-group">
-        <button mat-raised-button secondary>{{'login.register' | translate}}</button>
+        <button mat-raised-button secondary (click)="navigateToRegistration()">
+          {{ 'login.register' | translate }}
+        </button>
       </div>
-      <br/>
+      <br />
       <div class="form-group">
         <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">
           Login fehlgeschlagen: {{ errorMessage }}

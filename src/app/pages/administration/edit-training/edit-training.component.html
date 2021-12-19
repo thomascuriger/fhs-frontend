@@ -1,1 +1,63 @@
-<h1>{{"mandates.add.title" | translate}}</h1>>
+<h1>{{ 'administration.edit.title' | translate }}</h1>
+<p>Alle Inputs zum Erfassen eines Trainings</p>
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>{{ 'administration.add.title_of' | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      required="required"
+      label="Titel des Trainings"
+      formControlName="title"
+  /></mat-form-field>
+  <br />
+  <br />
+  <mat-form-field>
+    <mat-label>{{ 'administration.add.description' | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      required="required"
+      label="Beschreibung des Trainings"
+      formControlName="description"
+  /></mat-form-field>
+  <br />
+  <br />
+  <div
+    formArrayName="items"
+    *ngFor="let item of form?.get('items')['controls']; let i = index"
+  >
+    <div [formGroupName]="i">
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          required="required"
+          placeholder="{{ 'administration.add.add_distance' | translate }}"
+          formControlName="distance"
+        /><br />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          required="required"
+          formControlName="breaktime"
+          placeholder="{{ 'administration.add.add_break' | translate }}"
+        />
+      </mat-form-field>
+    </div>
+    <br />
+  </div>
+</form>
+
+<button mat-raised-button (click)="addTrainingsessionsplit()">
+  {{ 'administration.add.add' | translate }}
+</button>
+<br />
+<br />
+
+<button mat-raised-button (click)="update()">
+  {{ 'administration.add.save' | translate }}
+</button>
