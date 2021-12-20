@@ -13,6 +13,9 @@
         </a>
       </div>
       <mat-selection-list #menu [multiple]="false">
+        <mat-list-option *ngIf="!isLoggedIn()" routerLink="/signup" (click)="sidenav.toggle()">
+          {{ 'registration.title' | translate }}
+        </mat-list-option>
         <mat-list-option *ngIf="isLoggedIn()" routerLink="/dashboard" (click)="sidenav.toggle()">
           {{ 'dashboard.title' | translate }}
         </mat-list-option>
@@ -60,7 +63,7 @@
     </div>
     <mat-toolbar color="secondary">
       <mat-toolbar-row class="footer">
-        <span>API-Version 0.0.1-SNAPSHOT</span>
+        <span>API-Version 1.0.0</span>
       </mat-toolbar-row>
     </mat-toolbar>
   </mat-sidenav-content>

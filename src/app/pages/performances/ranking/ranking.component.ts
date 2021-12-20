@@ -9,7 +9,7 @@ import { TrainingDataService } from '@app/data/services';
 })
 export class RankingComponent implements OnInit {
 
-  trainings: any;
+  trainings: any = [];
 
   constructor(
     private route: ActivatedRoute,

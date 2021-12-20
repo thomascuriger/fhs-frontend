@@ -33,7 +33,7 @@
           matInput
           type="number"
           required="required"
-          placeholder="{{ 'administration.add.add_distance' | translate }}"
+          placeholder="{{ 'administration.edit.add_distance' | translate }}"
           formControlName="distance"
         /><br />
       </mat-form-field>
@@ -44,7 +44,7 @@
           type="number"
           required="required"
           formControlName="breaktime"
-          placeholder="{{ 'administration.add.add_break' | translate }}"
+          placeholder="{{ 'administration.edit.add_break' | translate }}"
         />
       </mat-form-field>
     </div>
@@ -53,11 +53,16 @@
 </form>
 
 <button mat-raised-button (click)="addTrainingsessionsplit()">
-  {{ 'administration.add.add' | translate }}
+  {{ 'administration.edit.add' | translate }}
 </button>
 <br />
 <br />
 
-<button mat-raised-button (click)="update()">
-  {{ 'administration.add.save' | translate }}
+<button mat-raised-button color="primary" (click)="update()">
+  {{ 'administration.edit.save' | translate }}
+</button>
+<br />
+<br />
+<button mat-raised-button (click)="navigateBack()">
+  {{ 'administration.edit.back' | translate }}
 </button>

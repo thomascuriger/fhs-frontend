@@ -25,6 +25,13 @@ export class AdministrationComponent implements OnInit {
     })
   }
 
+  ngAfterContentInit(): void {
+    this.trainingsessiondataService.getAll()
+    .subscribe(data => {
+      this.trainingsessions = data;
+    })
+  }
+
   formatDate(date: Date) {
     return moment(date).format('DD.MM.YYYY');
   }

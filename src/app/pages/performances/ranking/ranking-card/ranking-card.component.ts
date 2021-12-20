@@ -1,5 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Training } from '@app/data/models';
 
 @Component({
   selector: 'app-ranking-card',
@@ -9,26 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class RankingCardComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router
   ) { }
 
-  id = 0;
+  @Input() training?: Training;
 
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.get();
-    });
-  }
-
-  get() {
-
   }
 
   navigateToDetails() {
-    this.router.navigate(['performances/performance/' + this.id]);
+    this.router.navigate(['performances/performance/' + this.training?.id]);
   }
 
 }

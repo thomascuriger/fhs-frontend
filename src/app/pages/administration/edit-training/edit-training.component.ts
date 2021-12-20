@@ -10,11 +10,9 @@ import { TrainingsessionDataService } from '@app/data/services';
   styleUrls: ['./edit-training.component.scss']
 })
 export class EditTrainingComponent implements OnInit {
-
-  form?: FormGroup;
-  title = '';
+  form: FormGroup;
   id = 0;
-  trainingSession: any;
+  trainingsession: any;
 
   constructor(
     private trainingsessiondataService: TrainingsessionDataService,
@@ -37,18 +35,19 @@ export class EditTrainingComponent implements OnInit {
   }
 
   get() {
-    this.trainingsessiondataService.getOne(this.id)
-    .subscribe(data => {
-      this.trainingSession = data;
+    this.trainingsessiondataService.getOne(this.id).subscribe(data => {
+      this.trainingsession = data;
+      this.form.value.title = this.trainingsession.title;
+      console.log(data);
     });
   }
 
   items(): FormArray {
-    return this.form?.get('items') as FormArray;
+    return this.form.get('items') as FormArray;
   }
 
   addTrainingsessionsplit(): void {
-    let items = this.form?.get('items') as FormArray;
+    let items = this.form.get('items') as FormArray;
     items.push(
       this.formBuilder.group({
         distance: '',
@@ -62,27 +61,24 @@ export class EditTrainingComponent implements OnInit {
   }
 
   update() {
-    const trainingsession: Trainingsession = {
-      title: '',
-      description: '',
-      categoryId: 0,
-      trainingsessionsplits: []
-    };
     console.log(this.form?.value);
-    trainingsession.title = this.form?.value.title;
-    trainingsession.description = this.form?.value.description;
-    trainingsession.trainingsessionsplits = [];
-    this.form?.value.items.forEach((element: any) => {
+    this.trainingsession.title = this.form?.value.title;
+    this.trainingsession.description = this.form?.value.description;
+    this.trainingsession.trainingsessionsplits = [];
+    this.form.value.items.forEach((element: any) => {
       const split = new Trainingsessionsplit();
       split.distance = element.distance;
       split.breaktime = element.breaktime;
-      trainingsession.trainingsessionsplits?.push(split);
+      this.trainingsession.trainingsessionsplits?.push(split);
     });
     this.trainingsessiondataService
-      .createTrainingsession(trainingsession)
+      .updateTrainingsession(this.trainingsession)
       .subscribe(data => {});
-    console.log(trainingsession);
+    console.log(this.trainingsession);
     this.router.navigate(['/administration']);
   }
 
+  navigateBack() {
+    this.router.navigate(['/administration']);
+  }
 }

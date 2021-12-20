@@ -1,11 +1,11 @@
 <mat-card class="example-card ranking-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Läufer Nummer {{ id }}</mat-card-title>
-    <mat-card-subtitle>Jahrgang und weitere Informationen</mat-card-subtitle>
+    <mat-card-title>{{training?.firstName}} {{training?.lastName}}</mat-card-title>
+    <mat-card-subtitle>{{training?.description}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content> Trainingskommentar des Nutzers. </mat-card-content>
+  <mat-card-content>{{training?.description}}</mat-card-content>
   <mat-card-actions style="text-align: right">
-    <button mat-raised-button primary (click)="navigateToDetails()">Zur Trainingsleistung</button>
+    <button mat-raised-button color="primary" (click)="navigateToDetails()">Zur Trainingsleistung</button>
   </mat-card-actions>
 </mat-card>

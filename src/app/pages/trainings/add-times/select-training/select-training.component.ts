@@ -19,18 +19,6 @@ export class SelectTrainingComponent
   @Input() trainingSessions: Trainingsession[] = [];
 
   ngOnInit(): void {
-    /* this.trainingSessions.push({
-      id: 14,
-      title: 'training 2',
-      trainingsessionsplits: [
-        {
-          id: 1,
-          distance: 400
-        }
-      ]
-    }); */
-    // show list with all trainings
-    // then navigate to add -
     const validators: ValidatorFn[] = [];
     if (this.required) {
       validators.push(Validators.required);

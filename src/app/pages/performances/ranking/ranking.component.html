@@ -1,7 +1,7 @@
 <h1>Ranking vom 18.12.2021</h1>
 <h3>Trainings-Id: {{id}}</h3>
-<app-ranking-card></app-ranking-card>
-<br/>
-<app-ranking-card></app-ranking-card>
-<br/>
-<app-ranking-card></app-ranking-card>
+<div *ngIf="trainings.length > 0">
+  <div *ngFor="let training of trainings; let i = index">
+    <app-ranking-card [training]="training"></app-ranking-card>
+  </div>
+</div>

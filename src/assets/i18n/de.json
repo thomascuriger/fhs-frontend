@@ -1,5 +1,5 @@
 {
-  "title": "Faster - Higher - Stronger V0.0.1",
+  "title": "Faster - Higher - Stronger",
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Herzlich willkommen!"
@@ -19,7 +19,9 @@
     "username": "Username",
     "password": "Passwort",
     "email": "E-Mail",
-    "to_login": "Zurück zum Login"
+    "to_login": "Zurück zum Login",
+    "admin": "Administratorkonto",
+    "user": "Athletenkonto"
   },
   "performances": {
     "title": "Resultate"
@@ -39,6 +41,7 @@
   },
   "administration": {
     "title": "Administration",
+    "empty": "Es sind wurden noch keine Trainings erfasst.",
     "add": {
       "title": "Training hinzufügen",
       "title_of": "Titel des Trainings",
@@ -57,7 +60,8 @@
       "add_distance": "Distanz",
       "break": "Wetere Pause hinzufügen",
       "add_break": "Pausendauer in s eingeben",
-      "save": "Training speichern"
+      "save": "Training speichern",
+      "back": "Zurück"
     }
   },
   "logout": {
@@ -65,7 +69,8 @@
   },
   "validation": {
     "required": "Eingabe benötigt",
-    "password": "Passwort eingeben"
+    "password": "Passwort eingeben",
+    "email": "Mailadresse ungültig"
   }
 
 }

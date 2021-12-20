@@ -29,14 +29,15 @@ export class TrainingsessionDataService {
   createTrainingsession(trainingsession: Trainingsession): Observable<Trainingsession> {
     return this.httpClient.post<Trainingsession>(
       this.getTrainingsessionUrl(),
-      JSON.stringify(trainingsession), this.getHttpOptions()
+      JSON.stringify(trainingsession),
+      this.getHttpOptions()
     );
   }
 
-  updateTraining(trainingsession: Trainingsession): Observable<Trainingsession> {
-    return this.httpClient.post<Trainingsession>(
-      this.getTrainingsessionUrl(),
-      trainingsession,
+  updateTrainingsession(trainingsession: Trainingsession): Observable<Trainingsession> {
+    return this.httpClient.put<Trainingsession>(
+      this.getTrainingsessionUrl(trainingsession.id),
+      JSON.stringify(trainingsession),
       this.getHttpOptions()
     );
   }

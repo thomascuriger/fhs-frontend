@@ -1,7 +1,7 @@
 <div class="form-group">
   <mat-form-field [formGroup]="form" class="fc-input">
     <input type="email" matInput [placeholder]="label" [required]="required" [formControlName]="fieldName">
-    <mat-error *ngIf="form.controls[fieldName].hasError('pattern') && !form.controls[fieldName].hasError('required')" i18n>validation.validEmail</mat-error>
-    <mat-error *ngIf="form.controls[fieldName].hasError('required')" i18n>validation.required</mat-error>
+    <mat-error *ngIf="form.controls[fieldName].hasError('pattern') && !form.controls[fieldName].hasError('required')">{{'validation.email' | translate}}</mat-error>
+    <mat-error *ngIf="form.controls[fieldName].hasError('required')">{{'validation.required' | translate}}</mat-error>
   </mat-form-field>
 </div>
