@@ -13,6 +13,7 @@ export class EditTrainingComponent implements OnInit {
   form: FormGroup;
   id = 0;
   trainingsession: any;
+  categoryId = 0;
 
   constructor(
     private trainingsessiondataService: TrainingsessionDataService,
@@ -38,6 +39,7 @@ export class EditTrainingComponent implements OnInit {
     this.trainingsessiondataService.getOne(this.id).subscribe(data => {
       this.trainingsession = data;
       this.form.value.title = this.trainingsession.title;
+      this.categoryId = this.trainingsession.categoryId;
       console.log(data);
     });
   }
@@ -65,16 +67,17 @@ export class EditTrainingComponent implements OnInit {
     this.trainingsession.title = this.form?.value.title;
     this.trainingsession.description = this.form?.value.description;
     this.trainingsession.trainingsessionsplits = [];
+    this.trainingsession.categoryId = this.categoryId;
     this.form.value.items.forEach((element: any) => {
       const split = new Trainingsessionsplit();
       split.distance = element.distance;
       split.breaktime = element.breaktime;
-      this.trainingsession.trainingsessionsplits?.push(split);
+      this.trainingsession.trainingsessionsplits.push(split);
     });
+    console.log(this.trainingsession.trainingsessionsplits)
     this.trainingsessiondataService
       .updateTrainingsession(this.trainingsession)
       .subscribe(data => {});
-    console.log(this.trainingsession);
     this.router.navigate(['/administration']);
   }
 

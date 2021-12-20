@@ -3,30 +3,29 @@
 <form [formGroup]="form">
   <mat-form-field>
     <mat-label>{{ 'administration.add.title_of' | translate }}</mat-label>
-    <input
-      type="text"
-      matInput
-      required="required"
-      label="Titel des Trainings"
-      formControlName="title"
+    <input type="text" matInput required="required" formControlName="title"
   /></mat-form-field>
   <br />
+  <mat-divider></mat-divider>
   <br />
   <mat-form-field>
     <mat-label>{{ 'administration.add.description' | translate }}</mat-label>
-    <input
-      type="text"
-      matInput
-      required="required"
-      label="Beschreibung des Trainings"
-      formControlName="description"
+    <input type="text" matInput required="required" formControlName="description"
   /></mat-form-field>
   <br />
   <br />
+  <app-category-select
+    [form]="form"
+    [(value)]="categoryId"
+    fieldName="categoryId"
+  ></app-category-select>
+  <br />
+  <mat-divider></mat-divider>
   <div
     formArrayName="items"
     *ngFor="let item of form?.get('items')['controls']; let i = index"
   >
+    <br />
     <div [formGroupName]="i">
       <mat-form-field>
         <input
@@ -49,9 +48,10 @@
       </mat-form-field>
     </div>
     <br />
+    <mat-divider></mat-divider>
   </div>
 </form>
-
+<br />
 <button mat-raised-button (click)="addTrainingsessionsplit()">
   {{ 'administration.edit.add' | translate }}
 </button>

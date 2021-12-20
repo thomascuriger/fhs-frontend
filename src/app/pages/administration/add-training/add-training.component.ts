@@ -12,6 +12,7 @@ import { TrainingsessionDataService } from '@app/data/services';
 export class AddTrainingComponent implements OnInit {
   form?: FormGroup;
   title = '';
+  categoryId = 0;
 
   constructor(
     private trainingsessiondataService: TrainingsessionDataService,
@@ -47,14 +48,11 @@ export class AddTrainingComponent implements OnInit {
 
   save() {
     const trainingsession: Trainingsession = {
-      title: '',
-      description: '',
-      categoryId: 0,
+      title: this.form?.value.title,
+      description: this.form?.value.description,
+      categoryId: this.categoryId,
       trainingsessionsplits: []
     };
-    console.log(this.form?.value);
-    trainingsession.title = this.form?.value.title;
-    trainingsession.description = this.form?.value.description;
     trainingsession.trainingsessionsplits = [];
     this.form?.value.items.forEach((element: any) => {
       const split = new Trainingsessionsplit();
@@ -65,7 +63,10 @@ export class AddTrainingComponent implements OnInit {
     this.trainingsessiondataService
       .createTrainingsession(trainingsession)
       .subscribe(data => {});
-    console.log(trainingsession);
+    this.router.navigate(['/administration']);
+  }
+
+  navigateBack() {
     this.router.navigate(['/administration']);
   }
 }
