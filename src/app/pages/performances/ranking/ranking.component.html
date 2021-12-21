@@ -2,5 +2,6 @@
 <div *ngIf="trainings.length > 0">
   <div *ngFor="let training of trainings; let i = index">
     <app-ranking-card [training]="training"></app-ranking-card>
+    <br/>
   </div>
 </div>

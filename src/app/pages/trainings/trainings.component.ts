@@ -15,8 +15,9 @@ export class TrainingsComponent implements OnInit {
   ngOnInit(): void {
     this.trainingDataService.getAll().subscribe(data => {
       this.trainings = data;
-      this.trainings.sort((a: Training, b: Training) => a.date.valueOf() - b.date.valueOf())
+      this.trainings.sort(
+        (a: Training, b: Training) => +new Date(b.date) - +new Date(a.date)
+      );
     });
   }
-
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Training } from '@app/data/models';
+import { Split, Training } from '@app/data/models';
+import * as moment from 'moment';
 import { TrainingDataService } from 'src/app/data/services/training-data.service';
 
 @Component({
@@ -9,9 +10,16 @@ import { TrainingDataService } from 'src/app/data/services/training-data.service
   styleUrls: ['./performance.component.scss']
 })
 export class PerformanceComponent implements OnInit {
+  displayedColumns: string[] = ['index', 'time', 'distance', 'breaktime'];
+
   id = 0;
 
+  date = '';
+
   training: any;
+
+
+  ELEMENT_DATA: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +32,8 @@ export class PerformanceComponent implements OnInit {
     });
     this.trainingDataService.getOne(this.id).subscribe(data => {
       this.training = data;
+      this.date = moment(this.training?.date).format('Do MMMM YYYY');
     });
   }
+
 }

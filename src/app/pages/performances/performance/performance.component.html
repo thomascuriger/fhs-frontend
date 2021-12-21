@@ -1,16 +1,45 @@
-<h1>
-  {{ 'performance.title' | translate }} {{ training?.firstName }} {{ training?.lastName }}
-</h1>
-
-<h3>{{ training?.description }}</h3>
+<h2 style="margin-bottom: 5px !important">
+  {{ training?.title }}
+</h2>
+<h3 style="margin-bottom: 5px !important">{{ training?.username }}, {{ date }}</h3>
+<h4 *ngIf="training?.categoryId === 0">{{ 'performances.short' | translate }}</h4>
+<h4 *ngIf="training?.categoryId === 1">{{ 'performances.middle' | translate }}</h4>
+<h4 *ngIf="training?.categoryId === 2">{{ 'performances.long' | translate }}</h4>
+<mat-divider></mat-divider>
 <br />
-<div *ngIf="training?.splits.length > 0">
-  <mat-list>
-    <mat-list-item *ngFor="let split of training?.splits; let i = index">
-      {{ split.distance }} : {{ split.time }} s
-    </mat-list-item>
-  </mat-list>
-</div>
+<h3>{{ training?.description }}</h3>
+<mat-divider></mat-divider>
+<br />
+<h3 *ngIf="training?.comment">{{ training?.comment }}</h3>
+<h4 *ngIf="!training?.comment">{{ 'performances.no_comment' | translate }}</h4>
+<mat-divider></mat-divider>
+<br />
+<table
+  mat-table
+  id="timeTable"
+  [dataSource]="training?.splits"
+  class="mat-elevation-z8 time-table"
+>
+  <ng-container matColumnDef="index">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+  </ng-container>
+  <ng-container matColumnDef="time">
+    <th mat-header-cell *matHeaderCellDef>{{ 'performances.time' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.time }}</td>
+  </ng-container>
+  <ng-container matColumnDef="distance">
+    <th mat-header-cell *matHeaderCellDef>{{ 'performances.distance' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.distance }}</td>
+  </ng-container>
+  <ng-container matColumnDef="breaktime">
+    <th mat-header-cell *matHeaderCellDef>{{ 'performances.breaktime' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.breaktime }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; let index = index; columns: displayedColumns"></tr>
+</table>
+
 <div *ngIf="training?.splits.length == 0">
   {{ 'performance.empty' | translate }}
 </div>

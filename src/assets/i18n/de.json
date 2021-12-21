@@ -2,7 +2,8 @@
   "title": "Faster - Higher - Stronger",
   "dashboard": {
     "title": "Dashboard",
-    "welcome": "Herzlich willkommen!"
+    "welcome": "Herzlich willkommen bei Faster, Higher, Stronger - der besten Plattform für die Verwaltung von Leichtathletiktrainings!",
+    "developers": "Diese App wurde an der Fernfachhochschule Schweiz von Nico Dünner, Michael Forrer und Thomas Curiger entwickelt."
   },
   "login": {
     "title": "Login",
@@ -25,7 +26,16 @@
   },
   "performances": {
     "title": "Resultate",
-    "empty": "Es wurden keine Zeiten erfasst"
+    "empty": "Es wurden keine Zeiten erfasst.",
+    "intro": "Liste mit allen Trainingsessions. Die neusten Trainingsessions sind zuoberst aufgelistet.",
+    "no_comment": "Kein Kommentar erfasst.",
+    "details": "Details anzeigen",
+    "time": "Zeit in s",
+    "distance": "Distanz",
+    "breaktime": "Pause in s",
+    "short": "Kurzstreckentraining",
+    "middle": "Mittelstreckentraining",
+    "long": "Langstreckentraining"
   },
   "trainings": {
     "title": "Trainings",
@@ -39,7 +49,8 @@
     "break": "Pause: ",
     "seconds": " Sekunden",
     "comment": "Kommentar",
-    "date": "Datum"
+    "date": "Datum",
+    "intro": "Hier sind alle deine gemachten Training aufgeführt."
   },
   "performance": {
     "title": "Trainingsleistung"
@@ -51,7 +62,7 @@
       "title": "Training hinzufügen",
       "title_of": "Titel des Trainings",
       "description": "Beschreibung des Trainings",
-      "add": "Weitere Distanz hinzufügen", 
+      "add": "Weitere Distanz hinzufügen",
       "add_distance": "Distanz in m eingeben",
       "break": "Wetere Pause hinzufügen",
       "add_break": "Pausendauer in s eingeben",
@@ -62,7 +73,7 @@
       "title": "Training editieren",
       "title_of": "Titel des Trainings",
       "description": "Beschreibung des Trainings",
-      "add": "Weitere Distanz hinzufügen", 
+      "add": "Weitere Distanz hinzufügen",
       "add_distance": "Distanz in m eingeben",
       "break": "Wetere Pause hinzufügen",
       "add_break": "Pausendauer in s eingeben",
@@ -84,5 +95,4 @@
     "email": "Mailadresse ungültig",
     "number": "Zahl ungültig"
   }
-
 }

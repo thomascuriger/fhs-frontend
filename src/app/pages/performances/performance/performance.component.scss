@@ -1,0 +1,26 @@
+.time-table {
+  width: 100%;
+}
+
+.mat-column-index {
+  width: 32px;
+  border-right: 1px solid grey;
+  padding-left: 10px !important;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.mat-column-distance {
+  font-style: italic;
+}
+
+.mat-column-time {
+  padding-left: 24px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mat-column-breaktime {
+  width: 32px;
+  text-align: center;
+}

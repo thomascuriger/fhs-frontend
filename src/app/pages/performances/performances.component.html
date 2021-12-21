@@ -1,65 +1,10 @@
 <h1>{{ 'performances.title' | translate }}</h1>
-Liste mit allen Trainingsessions inkl. Datum
-<br /><br />
-
+<h3>{{'performances.intro' | translate}}</h3>
+<mat-divider></mat-divider>
 <mat-action-list *ngIf="trainingsessions.length > 0">
   <mat-list-item *ngFor="let session of trainingsessions" (click)="navigateToRanking(session.id)">
-    <mat-icon mat-list-icon>directions_run</mat-icon>
+    <mat-icon mat-list-icon>format_list_numbered</mat-icon>
     <div mat-line>{{session.title}}</div>
-    <div mat-line>Datum?</div>
-    <mat-icon>format_list_numbered</mat-icon>
+    <mat-icon>arrow_forward</mat-icon>
   </mat-list-item>
 </mat-action-list>
-
-<!-- <mat-action-list *ngIf="trainingsessions.length > 0">
-  <mat-list-item *ngFor="let session of trainingsessions">
-    <mat-icon mat-list-icon>directions_run</mat-icon>
-    <div mat-line>{{session.title}}</div>
-    <div mat-line [innerHtml]="formatDate(session.date)"></div>
-    <mat-icon (click)="editTrainingSession(session.id)">edit</mat-icon>
-  </mat-list-item>
-</mat-action-list> -->
-
-
-<!-- <mat-card
-  *ngFor="let session of trainingsessions"
-  (click)="navigateToRanking(session.id)"
->
-  <mat-card-subtitle>{{ session.title }}</mat-card-subtitle>
-  <mat-card-actions align="end">
-    <button mat-button primary>zum Ranking navigieren</button>
-  </mat-card-actions>
-</mat-card>
-<br />
-<mat-card
-  *ngFor="let session of trainingsessions"
-  (click)="navigateToRanking(session.id)"
->
-  <mat-card-subtitle>{{ session.title }}</mat-card-subtitle>
-  <mat-card-actions align="end">
-    <button mat-button primary>zum Ranking navigieren</button>
-  </mat-card-actions>
-</mat-card>
-<br />
-<mat-card
-  *ngFor="let session of trainingsessions"
-  (click)="navigateToRanking(session.id)"
->
-  <mat-card-subtitle>{{ session.title }}</mat-card-subtitle>
-  <mat-card-actions align="end">
-    <button mat-button primary>zum Ranking navigieren</button>
-  </mat-card-actions>
-</mat-card> -->
-<!--
-<mat-nav-list>
-  <mat-list-item routerLink="ranking/1">
-    <p>training 1</p>
-  </mat-list-item>
-  <mat-list-item routerLink="ranking/2">
-    <p>training 2</p>
-  </mat-list-item>
-  <mat-list-item routerLink="ranking/3">
-    <p>training 3</p>
-  </mat-list-item>
-</mat-nav-list>
- -->

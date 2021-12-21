@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Training } from '@app/data/models';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-ranking-card',
@@ -15,8 +16,11 @@ export class RankingCardComponent implements OnInit {
 
   @Input() training?: Training;
 
+  date = '';
+
 
   ngOnInit(): void {
+    this.date = moment(this.training?.date).format('Do MMMM YYYY');
   }
 
   navigateToDetails() {

@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { TrainingDataService } from '@app/data/services';
+import { Training } from '@app/data/models';
 
 @Component({
   selector: 'app-ranking',
@@ -30,6 +31,9 @@ export class RankingComponent implements OnInit {
     this.trainingDataService.getTrainingByTrainingsessionId(this.id)
     .subscribe(data => {
       this.trainings = data;
+      this.trainings.sort(
+        (a: Training, b: Training) => +new Date(b.date) - +new Date(a.date)
+      );
     });
   }
 

@@ -48,6 +48,7 @@ export class AddTimesComponent implements OnInit {
     const training: Training = {
       title: this.chosenTraining.title,
       description: this.chosenTraining.description,
+      comment: this.comment,
       date: this.date,
       userId: this.tokenStorage.getUser().id,
       username: this.tokenStorage.getUser().username,
