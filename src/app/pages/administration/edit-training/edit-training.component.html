@@ -1,17 +1,21 @@
 <h1>{{ 'administration.edit.title' | translate }}</h1>
-<p>Alle Inputs zum Erfassen eines Trainings</p>
 <form [formGroup]="form">
-  <mat-form-field>
-    <mat-label>{{ 'administration.add.title_of' | translate }}</mat-label>
-    <input type="text" matInput required="required" formControlName="title"
-  /></mat-form-field>
+  <rpt-text
+    [form]="form"
+    [required]="true"
+    label="{{ 'administration.edit.title_of' | translate }}"
+    [(value)]="title"
+    fieldName="title"
+  ></rpt-text>
   <br />
   <mat-divider></mat-divider>
   <br />
-  <mat-form-field>
-    <mat-label>{{ 'administration.add.description' | translate }}</mat-label>
-    <input type="text" matInput required="required" formControlName="description"
-  /></mat-form-field>
+  <rpt-textarea
+    [form]="form"
+    label="{{ 'administration.edit.description' | translate }}"
+    [(value)]="description"
+    fieldName="description"
+  ></rpt-textarea>
   <br />
   <br />
   <app-category-select
@@ -26,6 +30,7 @@
     *ngFor="let item of form?.get('items')['controls']; let i = index"
   >
     <br />
+      <mat-icon style="float: right;" (click)="removeTrainingsessionsplit(i)">delete</mat-icon>
     <div [formGroupName]="i">
       <mat-form-field>
         <input

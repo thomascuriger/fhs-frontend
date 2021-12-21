@@ -12,6 +12,8 @@ import { TrainingsessionDataService } from '@app/data/services';
 export class EditTrainingComponent implements OnInit {
   form: FormGroup;
   id = 0;
+  title = '';
+  description = '';
   trainingsession: any;
   categoryId = 0;
 
@@ -22,8 +24,6 @@ export class EditTrainingComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
-      title: '',
-      description: '',
       items: this.formBuilder.array([])
     });
   }
@@ -38,9 +38,12 @@ export class EditTrainingComponent implements OnInit {
   get() {
     this.trainingsessiondataService.getOne(this.id).subscribe(data => {
       this.trainingsession = data;
-      this.form.value.title = this.trainingsession.title;
+      this.title = this.trainingsession.title;
+      this.description = this.trainingsession.description;
       this.categoryId = this.trainingsession.categoryId;
-      console.log(data);
+      data.trainingsessionsplits.forEach(split => {
+        this.addTrainingsessionsplit(split.id, split.distance, split.breaktime);
+      });
     });
   }
 
@@ -48,33 +51,34 @@ export class EditTrainingComponent implements OnInit {
     return this.form.get('items') as FormArray;
   }
 
-  addTrainingsessionsplit(): void {
+  addTrainingsessionsplit(id?: number, distance?: number, breaktime?: number): void {
     let items = this.form.get('items') as FormArray;
     items.push(
       this.formBuilder.group({
-        distance: '',
-        breaktime: ''
+        id: id ? id : null,
+        distance: distance ? distance : '',
+        breaktime: breaktime ? breaktime : ''
       })
     );
   }
 
   removeTrainingsessionsplit(index: number) {
-    // TODO
+    let items = this.form.get('items') as FormArray;
+    items.removeAt(index);
   }
 
   update() {
-    console.log(this.form?.value);
-    this.trainingsession.title = this.form?.value.title;
-    this.trainingsession.description = this.form?.value.description;
+    this.trainingsession.title = this.title;
+    this.trainingsession.description = this.description;
     this.trainingsession.trainingsessionsplits = [];
     this.trainingsession.categoryId = this.categoryId;
     this.form.value.items.forEach((element: any) => {
       const split = new Trainingsessionsplit();
+      split.id = element.id;
       split.distance = element.distance;
       split.breaktime = element.breaktime;
       this.trainingsession.trainingsessionsplits.push(split);
     });
-    console.log(this.trainingsession.trainingsessionsplits)
     this.trainingsessiondataService
       .updateTrainingsession(this.trainingsession)
       .subscribe(data => {});

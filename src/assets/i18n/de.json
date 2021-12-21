@@ -24,7 +24,8 @@
     "user": "Athletenkonto"
   },
   "performances": {
-    "title": "Resultate"
+    "title": "Resultate",
+    "empty": "Es wurden keine Zeiten erfasst"
   },
   "trainings": {
     "title": "Trainings",
@@ -33,35 +34,45 @@
     "edit": "Bearbeiten",
     "details": "Details",
     "choose": "Training auswählen",
-    "introduction": "Gib hier die Zeiten in Sekunden ein",
-    "cancel": "Abbrechen"
+    "introduction": "Gib hier die Zwischenzeiten in Sekunden ein.",
+    "cancel": "Abbrechen",
+    "break": "Pause: ",
+    "seconds": " Sekunden",
+    "comment": "Kommentar",
+    "date": "Datum"
   },
   "performance": {
     "title": "Trainingsleistung"
   },
   "administration": {
     "title": "Administration",
-    "empty": "Es sind wurden noch keine Trainings erfasst.",
+    "empty": "Es wurden noch keine Trainings erfasst.",
     "add": {
       "title": "Training hinzufügen",
       "title_of": "Titel des Trainings",
       "description": "Beschreibung des Trainings",
       "add": "Weitere Distanz hinzufügen", 
-      "add_distance": "Distanz",
+      "add_distance": "Distanz in m eingeben",
       "break": "Wetere Pause hinzufügen",
       "add_break": "Pausendauer in s eingeben",
-      "save": "Training speichern"
+      "save": "Training speichern",
+      "back": "Zurück"
     },
     "edit": {
       "title": "Training editieren",
       "title_of": "Titel des Trainings",
       "description": "Beschreibung des Trainings",
       "add": "Weitere Distanz hinzufügen", 
-      "add_distance": "Distanz",
+      "add_distance": "Distanz in m eingeben",
       "break": "Wetere Pause hinzufügen",
       "add_break": "Pausendauer in s eingeben",
       "save": "Training speichern",
       "back": "Zurück"
+    },
+    "category_select": {
+      "short": "Kurzstrecken",
+      "middle": "Mittelstrecken",
+      "long": "Langstrecken"
     }
   },
   "logout": {
@@ -70,7 +81,8 @@
   "validation": {
     "required": "Eingabe benötigt",
     "password": "Passwort eingeben",
-    "email": "Mailadresse ungültig"
+    "email": "Mailadresse ungültig",
+    "number": "Zahl ungültig"
   }
 
 }

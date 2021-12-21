@@ -6,8 +6,7 @@ export interface Training {
   description: string;
   date: Date;
   userId: string;
-  firstName: string;
-  lastName: string;
+  username: string;
   trainingsessionId: number;
   categoryId: number;
   splits: Split[];

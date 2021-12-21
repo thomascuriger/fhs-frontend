@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TokenStorageService } from '@shared/services/token-storage.service';
+import { TrainingUtils } from '@shared/util/training-utils';
 import { EMPTY, Observable } from 'rxjs';
 import { Trainingsession } from '../models';
 
@@ -12,17 +13,18 @@ export class TrainingsessionDataService {
 
   constructor(
     private httpClient: HttpClient,
-    private tokenStorageService: TokenStorageService
+    private tokenStorageService: TokenStorageService,
+    private trainingUtils: TrainingUtils
   ) {}
 
   getAll(): Observable<any> {
-    return this.httpClient.get(this.getTrainingsessionUrl(), this.getHttpOptions());
+    return this.httpClient.get(this.getTrainingsessionUrl(), this.trainingUtils.getHttpOptions());
   }
 
   getOne(id: number): Observable<Trainingsession> {
     return this.httpClient.get<Trainingsession>(
       this.getTrainingsessionUrl(id),
-      this.getHttpOptions()
+      this.trainingUtils.getHttpOptions()
     );
   }
 
@@ -30,7 +32,7 @@ export class TrainingsessionDataService {
     return this.httpClient.post<Trainingsession>(
       this.getTrainingsessionUrl(),
       JSON.stringify(trainingsession),
-      this.getHttpOptions()
+      this.trainingUtils.getHttpOptions()
     );
   }
 
@@ -38,7 +40,7 @@ export class TrainingsessionDataService {
     return this.httpClient.put<Trainingsession>(
       this.getTrainingsessionUrl(trainingsession.id),
       JSON.stringify(trainingsession),
-      this.getHttpOptions()
+      this.trainingUtils.getHttpOptions()
     );
   }
 
@@ -46,7 +48,7 @@ export class TrainingsessionDataService {
     if (!trainingsession.id) return EMPTY;
     return this.httpClient.delete<void>(
       `${this.baseUrl}/${trainingsession.id}`,
-      this.getHttpOptions()
+      this.trainingUtils.getHttpOptions()
     );
   }
 

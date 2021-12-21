@@ -1,4 +1,16 @@
-<h1>{{ 'performance.title' | translate }} {{ training?.title }}</h1>
+<h1>
+  {{ 'performance.title' | translate }} {{ training?.firstName }} {{ training?.lastName }}
+</h1>
 
 <h3>{{ training?.description }}</h3>
-<h5>Auflistung der Zeiten</h5>
+<br />
+<div *ngIf="training?.splits.length > 0">
+  <mat-list>
+    <mat-list-item *ngFor="let split of training?.splits; let i = index">
+      {{ split.distance }} : {{ split.time }} s
+    </mat-list-item>
+  </mat-list>
+</div>
+<div *ngIf="training?.splits.length == 0">
+  {{ 'performance.empty' | translate }}
+</div>

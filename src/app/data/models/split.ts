@@ -1,5 +1,6 @@
 export class Split {
   readonly id?: number;
-  distance?: number;
-  time?: number;
+  distance: number;
+  time: number;
+  breaktime: number;
 }

@@ -15,6 +15,8 @@ export class AddTimesComponent implements OnInit {
 
   trainingSessions: Trainingsession[] = [];
 
+  comment = '';
+
   chosenTraining: Trainingsession = {
     title: '',
     description: '',
@@ -48,8 +50,7 @@ export class AddTimesComponent implements OnInit {
       description: this.chosenTraining.description,
       date: this.date,
       userId: this.tokenStorage.getUser().id,
-      firstName: this.tokenStorage.getUser().firstname,
-      lastName: this.tokenStorage.getUser().lastname,
+      username: this.tokenStorage.getUser().username,
       trainingsessionId: this.chosenTraining.id ? this.chosenTraining.id : 0,
       categoryId: this.chosenTraining.categoryId,
       splits: []
@@ -59,6 +60,7 @@ export class AddTimesComponent implements OnInit {
       const split = new Split();
       split.distance = this.chosenTraining?.trainingsessionsplits[i].distance;
       split.time = this.temporarySplits[i];
+      split.breaktime = this.chosenTraining?.trainingsessionsplits[i].breaktime;
       training.splits.push(split);
       i++;
     }

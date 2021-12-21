@@ -1,5 +1,4 @@
-<h1>Ranking vom 18.12.2021</h1>
-<h3>Trainings-Id: {{id}}</h3>
+<h1>{{'performances.title' | translate}}</h1>
 <div *ngIf="trainings.length > 0">
   <div *ngFor="let training of trainings; let i = index">
     <app-ranking-card [training]="training"></app-ranking-card>

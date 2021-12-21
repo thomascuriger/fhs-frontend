@@ -1,5 +1,5 @@
 export class Trainingsessionsplit {
-  readonly id?: number;
+  id: number;
   distance: number;
   breaktime: number;
 }

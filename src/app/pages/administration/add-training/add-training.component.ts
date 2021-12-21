@@ -12,6 +12,7 @@ import { TrainingsessionDataService } from '@app/data/services';
 export class AddTrainingComponent implements OnInit {
   form?: FormGroup;
   title = '';
+  description = '';
   categoryId = 0;
 
   constructor(
@@ -20,8 +21,6 @@ export class AddTrainingComponent implements OnInit {
     private router: Router
   ) {
     this.form = this.formBuilder.group({
-      title: '',
-      description: '',
       items: this.formBuilder.array([])
     });
   }
@@ -48,8 +47,8 @@ export class AddTrainingComponent implements OnInit {
 
   save() {
     const trainingsession: Trainingsession = {
-      title: this.form?.value.title,
-      description: this.form?.value.description,
+      title: this.title,
+      description: this.description,
       categoryId: this.categoryId,
       trainingsessionsplits: []
     };

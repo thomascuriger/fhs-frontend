@@ -13,51 +13,10 @@ export class TrainingsComponent implements OnInit {
   constructor(private trainingDataService: TrainingDataService) {}
 
   ngOnInit(): void {
-
-    /* this.trainings = [
-      {
-        id: 4,
-        title: 'training',
-        description: 'Trainingsbeschrieb',
-        date: new Date(),
-        splits: [
-          {
-            id: 13,
-            distance: 300,
-            time: 300
-          }
-        ]
-      },
-      {
-        id: 4,
-        title: 'training',
-        description: 'Trainingsbeschrieb',
-        date: new Date(),
-        splits: [
-          {
-            id: 13,
-            distance: 300,
-            time: 300
-          }
-        ]
-      },
-      {
-        id: 4,
-        title: 'training',
-        description: 'Trainingsbeschrieb',
-        date: new Date(),
-        splits: [
-          {
-            id: 13,
-            distance: 300,
-            time: 300
-          }
-        ]
-      }
-    ] */
     this.trainingDataService.getAll().subscribe(data => {
-      console.log(data)
       this.trainings = data;
+      this.trainings.sort((a: Training, b: Training) => a.date.valueOf() - b.date.valueOf())
     });
   }
+
 }
