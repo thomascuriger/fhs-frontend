@@ -13,14 +13,15 @@ import { TrainingsessionDataService } from '@app/data/services';
 export class PerformancesComponent implements OnInit {
   trainingsessions: Trainingsession[] = [];
 
-  constructor(private router: Router,
-    private trainingsessiondataService: TrainingsessionDataService) {}
+  constructor(
+    private router: Router,
+    private trainingsessiondataService: TrainingsessionDataService
+  ) {}
 
   ngOnInit(): void {
-    this.trainingsessiondataService.getAll()
-    .subscribe(data => {
+    this.trainingsessiondataService.getAll().subscribe(data => {
       this.trainingsessions = data;
-    })
+    });
   }
 
   formatDate(date: Date) {
@@ -30,5 +31,4 @@ export class PerformancesComponent implements OnInit {
   navigateToRanking(id: number) {
     this.router.navigate(['performances/ranking/' + id]);
   }
-
 }

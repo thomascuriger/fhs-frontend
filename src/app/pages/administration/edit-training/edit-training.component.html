@@ -30,7 +30,9 @@
     *ngFor="let item of form?.get('items')['controls']; let i = index"
   >
     <br />
-      <mat-icon style="float: right;" (click)="removeTrainingsessionsplit(i)">delete</mat-icon>
+    <mat-icon style="float: right" (click)="removeTrainingsessionsplit(i)"
+      >delete</mat-icon
+    >
     <div [formGroupName]="i">
       <mat-form-field>
         <input

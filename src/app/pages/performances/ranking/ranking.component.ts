@@ -9,16 +9,14 @@ import { Training } from '@app/data/models';
   styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit {
-
   trainings: any = [];
 
   constructor(
     private route: ActivatedRoute,
     private trainingDataService: TrainingDataService
-  ) { }
+  ) {}
 
   id = 0;
-
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -28,13 +26,11 @@ export class RankingComponent implements OnInit {
   }
 
   get() {
-    this.trainingDataService.getTrainingByTrainingsessionId(this.id)
-    .subscribe(data => {
+    this.trainingDataService.getTrainingByTrainingsessionId(this.id).subscribe(data => {
       this.trainings = data;
       this.trainings.sort(
         (a: Training, b: Training) => +new Date(b.date) - +new Date(a.date)
       );
     });
   }
-
 }

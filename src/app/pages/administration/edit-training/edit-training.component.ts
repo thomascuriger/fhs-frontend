@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Trainingsession, Trainingsessionsplit } from '@app/data/models';
+import { Trainingsessionsplit } from '@app/data/models';
 import { TrainingsessionDataService } from '@app/data/services';
 
 @Component({

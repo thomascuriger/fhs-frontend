@@ -35,10 +35,11 @@
     "breaktime": "Pause in s",
     "short": "Kurzstreckentraining",
     "middle": "Mittelstreckentraining",
-    "long": "Langstreckentraining"
+    "long": "Langstreckentraining",
+    "back": "Zurück"
   },
   "trainings": {
-    "title": "Trainings",
+    "title": "Meine Trainings",
     "add": "Training hinzufügen",
     "save": "Training speichern",
     "edit": "Bearbeiten",

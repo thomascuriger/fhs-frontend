@@ -6,14 +6,7 @@ import { RegistrationRoutingModule } from './registration-routing.module';
 import { RoleSelectComponent } from './role-select/role-select.component';
 
 @NgModule({
-  declarations: [
-    RegistrationComponent,
-    RoleSelectComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RegistrationRoutingModule
-  ]
+  declarations: [RegistrationComponent, RoleSelectComponent],
+  imports: [CommonModule, SharedModule, RegistrationRoutingModule]
 })
-export class RegistrationModule { }
+export class RegistrationModule {}

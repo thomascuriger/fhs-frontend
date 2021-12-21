@@ -30,7 +30,7 @@ export class AppComponent {
 
   logout() {
     this.tokenStorageService.signOut();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn() {

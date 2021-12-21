@@ -1,6 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Split, Training } from '@app/data/models';
 import * as moment from 'moment';
 import { TrainingDataService } from 'src/app/data/services/training-data.service';
 
@@ -18,12 +18,10 @@ export class PerformanceComponent implements OnInit {
 
   training: any;
 
-
-  ELEMENT_DATA: any;
-
   constructor(
     private route: ActivatedRoute,
-    private trainingDataService: TrainingDataService
+    private trainingDataService: TrainingDataService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -36,4 +34,7 @@ export class PerformanceComponent implements OnInit {
     });
   }
 
+  navigateBack() {
+    this.location.back();
+  }
 }

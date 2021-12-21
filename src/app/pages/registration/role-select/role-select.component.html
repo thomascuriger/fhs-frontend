@@ -1,16 +1,10 @@
 <mat-form-field>
-  <mat-label *ngIf="label">{{label}}</mat-label>
+  <mat-label *ngIf="label">{{ label }}</mat-label>
   <mat-select [formControl]="form.controls[fieldName]">
-    <mat-option
-      [value]="'admin'"
-      >{{ 'registration.admin' | translate }}</mat-option
-    >
-    <mat-option
-      [value]="'user'"
-      >{{ 'registration.user' | translate }}</mat-option
-    >
+    <mat-option [value]="'admin'">{{ 'registration.admin' | translate }}</mat-option>
+    <mat-option [value]="'user'">{{ 'registration.user' | translate }}</mat-option>
   </mat-select>
-  <mat-error *ngIf="form.controls[fieldName].hasError('required')"
-    >{{'validation.required' | translate}}</mat-error
-  >
+  <mat-error *ngIf="form.controls[fieldName].hasError('required')">{{
+    'validation.required' | translate
+  }}</mat-error>
 </mat-form-field>

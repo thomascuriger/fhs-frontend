@@ -26,7 +26,14 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.authService
-      .register(this.username, this.firstname, this.lastname, this.email, this.password, this.role)
+      .register(
+        this.username,
+        this.firstname,
+        this.lastname,
+        this.email,
+        this.password,
+        this.role
+      )
       .subscribe({
         next: data => {
           console.log(data);

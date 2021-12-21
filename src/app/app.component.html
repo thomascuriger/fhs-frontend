@@ -13,19 +13,39 @@
         </a>
       </div>
       <mat-selection-list #menu [multiple]="false">
-        <mat-list-option *ngIf="!isLoggedIn()" routerLink="/signup" (click)="sidenav.toggle()">
+        <mat-list-option
+          *ngIf="!isLoggedIn()"
+          routerLink="/signup"
+          (click)="sidenav.toggle()"
+        >
           {{ 'registration.title' | translate }}
         </mat-list-option>
-        <mat-list-option *ngIf="isLoggedIn()" routerLink="/dashboard" (click)="sidenav.toggle()">
+        <mat-list-option
+          *ngIf="isLoggedIn()"
+          routerLink="/dashboard"
+          (click)="sidenav.toggle()"
+        >
           {{ 'dashboard.title' | translate }}
         </mat-list-option>
-        <mat-list-option *ngIf="isLoggedIn()" routerLink="/performances" (click)="sidenav.toggle()">
+        <mat-list-option
+          *ngIf="isLoggedIn()"
+          routerLink="/performances"
+          (click)="sidenav.toggle()"
+        >
           {{ 'performances.title' | translate }}
         </mat-list-option>
-        <mat-list-option *ngIf="isLoggedIn()" routerLink="/trainings" (click)="sidenav.toggle()">
+        <mat-list-option
+          *ngIf="isLoggedIn()"
+          routerLink="/trainings"
+          (click)="sidenav.toggle()"
+        >
           {{ 'trainings.title' | translate }}
         </mat-list-option>
-        <mat-list-option *ngIf="isLoggedIn() && isAdmin()" routerLink="/administration" (click)="sidenav.toggle()">
+        <mat-list-option
+          *ngIf="isLoggedIn() && isAdmin()"
+          routerLink="/administration"
+          (click)="sidenav.toggle()"
+        >
           {{ 'administration.title' | translate }}
         </mat-list-option>
         <mat-list-option *ngIf="isLoggedIn()" (click)="logout()">

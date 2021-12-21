@@ -10,7 +10,6 @@ import * as moment from 'moment';
   styleUrls: ['./administration.component.scss']
 })
 export class AdministrationComponent implements OnInit {
-
   trainingsessions: Trainingsession[] = [];
 
   constructor(
@@ -19,17 +18,15 @@ export class AdministrationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.trainingsessiondataService.getAll()
-    .subscribe(data => {
+    this.trainingsessiondataService.getAll().subscribe(data => {
       this.trainingsessions = data;
-    })
+    });
   }
 
   ngAfterContentInit(): void {
-    this.trainingsessiondataService.getAll()
-    .subscribe(data => {
+    this.trainingsessiondataService.getAll().subscribe(data => {
       this.trainingsessions = data;
-    })
+    });
   }
 
   formatDate(date: Date) {
@@ -37,6 +34,6 @@ export class AdministrationComponent implements OnInit {
   }
 
   editTrainingSession(id: number) {
-    this.router.navigate(['administration/edit/' + id])
+    this.router.navigate(['administration/edit/' + id]);
   }
 }

@@ -1,3 +1,42 @@
-<h1> Zeiten editieren </h1>
-
-<p>geschieht via Training id</p>
+<h1>{{ 'trainings.add' | translate }}</h1>
+<form [formGroup]="form">
+  <h2>{{ training?.title }}</h2>
+  <rpt-date
+    [form]="form"
+    fieldName="date"
+    [(value)]="date"
+    label="{{ 'trainings.date' | translate }}"
+  ></rpt-date>
+  <rpt-textarea
+    [form]="form"
+    fieldName="comment"
+    [(value)]="comment"
+    label="{{ 'trainings.comment' | translate }}"
+  ></rpt-textarea>
+  <mat-divider></mat-divider>
+  <br />
+  <p>{{ 'trainings.introduction' | translate }}</p>
+  <div *ngFor="let split of training?.splits; let i = index">
+    <rpt-number
+      [form]="form"
+      fieldName="{{ i }}"
+      label="{{ split.distance }} m"
+      [(value)]="split.time"
+    ></rpt-number>
+    <a
+      >{{ 'trainings.break' | translate }} {{ split.breaktime }}
+      {{ 'trainings.seconds' | translate }}</a
+    >
+    <br />
+    <mat-divider></mat-divider>
+  </div>
+  <br />
+  <button mat-raised-button color="primary" (click)="update()">
+    {{ 'trainings.save' | translate }}
+  </button>
+  <br />
+  <br />
+  <button mat-raised-button (click)="navigateBack()">
+    {{ 'trainings.cancel' | translate }}
+  </button>
+</form>

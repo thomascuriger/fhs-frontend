@@ -1,11 +1,13 @@
 <h1>{{ 'trainings.title' | translate }}</h1>
 
-<button mat-raised-button routerLink="/trainings/add" color="primary">{{ 'trainings.add' | translate }}</button>
+<button mat-raised-button routerLink="/trainings/add" color="primary">
+  {{ 'trainings.add' | translate }}
+</button>
 <br />
-<br/>
-<h3>{{'trainings.intro' | translate}}</h3>
+<br />
+<h3>{{ 'trainings.intro' | translate }}</h3>
 
-<div *ngFor="let training of trainings;">
+<div *ngFor="let training of trainings">
   <app-training-card [training]="training"></app-training-card>
 </div>
-<br/>
+<br />

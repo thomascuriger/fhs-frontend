@@ -43,3 +43,9 @@
 <div *ngIf="training?.splits.length == 0">
   {{ 'performance.empty' | translate }}
 </div>
+
+<br />
+<br />
+<button mat-raised-button color="primary" (click)="navigateBack()">
+  {{ 'performances.back' | translate }}
+</button>

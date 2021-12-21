@@ -7,18 +7,8 @@ import { CommonModule } from '@angular/common';
 import { TrainingsComponent } from './trainings.component';
 import { EditTimesComponent } from './edit-times/edit-times.component';
 
-
 @NgModule({
-  declarations: [
-    TrainingsComponent,
-    EditTimesComponent,
-    TrainingCardComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    AddTimesModule,
-    TrainingsRoutingModule
-  ]
+  declarations: [TrainingsComponent, EditTimesComponent, TrainingCardComponent],
+  imports: [CommonModule, SharedModule, AddTimesModule, TrainingsRoutingModule]
 })
-export class TrainingsModule { }
+export class TrainingsModule {}

@@ -10,28 +10,33 @@
   <br />
   <div *ngIf="chosenTraining">
     <h2>{{ chosenTraining.title }}</h2>
-    <rpt-date [form]="form" fieldName="date" [(value)]="date" label="{{'trainings.date' | translate}}"></rpt-date>
+    <rpt-date
+      [form]="form"
+      fieldName="date"
+      [(value)]="date"
+      label="{{ 'trainings.date' | translate }}"
+    ></rpt-date>
     <rpt-textarea
-    [form]="form"
-    fieldName="comment"
-    [(value)]="comment"
-    label="{{'trainings.comment' | translate}}"
+      [form]="form"
+      fieldName="comment"
+      [(value)]="comment"
+      label="{{ 'trainings.comment' | translate }}"
     ></rpt-textarea>
     <mat-divider></mat-divider>
-    <br/>
+    <br />
     <p>{{ 'trainings.introduction' | translate }}</p>
     <div *ngFor="let split of chosenTraining.trainingsessionsplits; let i = index">
       <rpt-number
         [form]="form"
-        fieldName={{i}}
-        label="{{split.distance}} m"
+        fieldName="{{ i }}"
+        label="{{ split.distance }} m"
         [(value)]="temporarySplits[i]"
       ></rpt-number>
       <a
         >{{ 'trainings.break' | translate }} {{ split.breaktime }}
         {{ 'trainings.seconds' | translate }}</a
       >
-      <br/>
+      <br />
       <mat-divider></mat-divider>
     </div>
     <br />
