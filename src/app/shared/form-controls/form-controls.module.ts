@@ -7,7 +7,6 @@ import { DateComponent } from './date/date.component';
 import { EmailComponent } from './email/email.component';
 import { NumberComponent } from './number/number.component';
 import { PasswordComponent } from './password/password.component';
-import { RadioComponent } from './radio/radio.component';
 import { TextComponent } from './text/text.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { UrlComponent } from './url/url.component';
@@ -20,7 +19,6 @@ import { TranslateModule } from '@ngx-translate/core';
     EmailComponent,
     NumberComponent,
     PasswordComponent,
-    RadioComponent,
     TextComponent,
     TextareaComponent,
     UrlComponent
@@ -32,7 +30,6 @@ import { TranslateModule } from '@ngx-translate/core';
     EmailComponent,
     NumberComponent,
     PasswordComponent,
-    RadioComponent,
     TextComponent,
     TextareaComponent,
     UrlComponent
