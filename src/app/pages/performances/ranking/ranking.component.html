@@ -1,4 +1,6 @@
 <h1>{{ 'performances.title' | translate }}</h1>
+<h3>{{ title }}</h3>
+<h3 *ngIf="trainings.length == 0"> {{ 'performances.empty' | translate}} </h3>
 <div *ngIf="trainings.length > 0">
   <div *ngFor="let training of trainings; let i = index">
     <app-ranking-card [training]="training"></app-ranking-card>

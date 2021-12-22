@@ -14,7 +14,7 @@ export const environment = {
   },
   production: false,
   baseUrl: 'http://localhost:8080/',
-  apiRoot: '/rpt/api',
+  apiRoot: '/fhs-frontend/api',
 };
 
 /*

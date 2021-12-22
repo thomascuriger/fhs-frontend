@@ -1,24 +1,24 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TokenStorageService } from '@shared/services/token-storage.service';
 import { TrainingUtils } from '@shared/util/training-utils';
 import { EMPTY, Observable } from 'rxjs';
 import { Trainingsession } from '../models';
+
+const TRAININGSESSION_API = 'http://localhost:8080/api/trainingsession/'; // if electron
+// const TRAININGSESSION_API = '/api/trainingsession/'; // if localhost
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrainingsessionDataService {
-  private baseUrl = '/api/trainingsession';
 
-  constructor(
-    private httpClient: HttpClient,
-    private tokenStorageService: TokenStorageService,
-    private trainingUtils: TrainingUtils
-  ) {}
+  constructor(private httpClient: HttpClient, private trainingUtils: TrainingUtils) {}
 
   getAll(): Observable<any> {
-    return this.httpClient.get(this.getTrainingsessionUrl(), this.trainingUtils.getHttpOptions());
+    return this.httpClient.get(
+      this.getTrainingsessionUrl(),
+      this.trainingUtils.getHttpOptions()
+    );
   }
 
   getOne(id: number): Observable<Trainingsession> {
@@ -47,28 +47,15 @@ export class TrainingsessionDataService {
   delete(trainingsession: Trainingsession): Observable<void> {
     if (!trainingsession.id) return EMPTY;
     return this.httpClient.delete<void>(
-      `${this.baseUrl}/${trainingsession.id}`,
+      this.getTrainingsessionUrl(trainingsession.id),
       this.trainingUtils.getHttpOptions()
     );
   }
 
   getTrainingsessionUrl(id?: number) {
     if (id) {
-      return this.baseUrl.concat('/' + id);
+      return TRAININGSESSION_API + id;
     }
-    return this.baseUrl;
-  }
-
-  getHttpOptions() {
-    const authToken = this.tokenStorageService.getToken();
-    let params: HttpParams = new HttpParams();
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + authToken
-      }),
-      params: params
-    };
-    return httpOptions;
+    return TRAININGSESSION_API;
   }
 }

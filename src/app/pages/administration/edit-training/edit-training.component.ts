@@ -38,10 +38,13 @@ export class EditTrainingComponent implements OnInit {
   get() {
     this.trainingsessiondataService.getOne(this.id).subscribe(data => {
       this.trainingsession = data;
+      this.trainingsession.trainingsessionsplits.sort(
+        (a: Trainingsessionsplit, b: Trainingsessionsplit) => a.id - b.id
+      )
       this.title = this.trainingsession.title;
       this.description = this.trainingsession.description;
       this.categoryId = this.trainingsession.categoryId;
-      data.trainingsessionsplits.forEach(split => {
+      this.trainingsession.trainingsessionsplits.forEach((split: { id: number | undefined; distance: number | undefined; breaktime: number | undefined; }) => {
         this.addTrainingsessionsplit(split.id, split.distance, split.breaktime);
       });
     });

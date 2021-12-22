@@ -17,6 +17,7 @@ export class RankingComponent implements OnInit {
   ) {}
 
   id = 0;
+  title = '';
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -28,6 +29,9 @@ export class RankingComponent implements OnInit {
   get() {
     this.trainingDataService.getTrainingByTrainingsessionId(this.id).subscribe(data => {
       this.trainings = data;
+      if (this.trainings) {
+        this.title = this.trainings[0].title;
+      }
       this.trainings.sort(
         (a: Training, b: Training) => +new Date(b.date) - +new Date(a.date)
       );

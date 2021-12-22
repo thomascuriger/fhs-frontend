@@ -9,7 +9,7 @@
     <div class="sidenav-content">
       <div class="logo">
         <a routerLink="/dashboard">
-          <img src="./../assets/ffhs.svg" alt="FFHS_Logo" />
+          <img src="assets/ffhs.svg" alt="FFHS_Logo" />
         </a>
       </div>
       <mat-selection-list #menu [multiple]="false">
@@ -67,13 +67,6 @@
       </button>
       <span>{{ 'title' | translate }}</span>
       <span class="example-spacer"></span>
-      <!-- <button
-        mat-icon-button
-        class="example-icon favorite-icon"
-        aria-label="Example icon-button with more_vert icon"
-      >
-        <mat-icon>more_vert</mat-icon>
-      </button> -->
     </mat-toolbar>
 
     <div class="content">
@@ -81,10 +74,5 @@
         <router-outlet></router-outlet>
       </div>
     </div>
-    <!-- <mat-toolbar color="secondary">
-      <mat-toolbar-row class="footer">
-        <span>API-Version 1.0.0</span>
-      </mat-toolbar-row>
-    </mat-toolbar> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

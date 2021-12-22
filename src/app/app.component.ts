@@ -1,7 +1,6 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { MatSidenav } from '@angular/material/sidenav';
 import { TokenStorageService } from '@shared/services/token-storage.service';
 
 @Component({

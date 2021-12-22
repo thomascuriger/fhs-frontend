@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Split } from '@app/data/models';
 import { TrainingDataService } from '@app/data/services';
 
 @Component({
@@ -31,6 +32,7 @@ export class EditTimesComponent implements OnInit {
   get() {
     this.trainingDataService.getOne(this.id).subscribe(data => {
       this.training = data;
+      this.training.split.sort((a: Split, b: Split) => a.id! - b.id!);
       this.comment = this.training.comment;
       this.date = this.training.date;
     });
