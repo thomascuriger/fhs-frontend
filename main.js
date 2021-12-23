@@ -9,7 +9,8 @@ const {app, BrowserWindow} = require('electron')
         width: 411,
         height: 823,
         webPreferences: {
-          nodeIntegration: true
+          nodeIntegration: true,
+          webSecurity: false
         }
       })
 
