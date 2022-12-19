@@ -42,7 +42,7 @@
     "@angular/compiler-cli": "13.0.1",
     "@types/jasmine": "4.3.1",
     "@types/node": "16.11.6",
-    "electron": "16.2.8",
+    "electron": "20.0.0",
     "electron-builder": "22.10.5",
     "jasmine-core": "~3.10.1",
     "karma": "6.4.1",
